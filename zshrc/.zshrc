@@ -1,4 +1,3 @@
-
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:/Users/uzubair/dev/bin:/usr/local/opt/tcl-tk/bin:$PATH
 
@@ -84,6 +83,7 @@ export CLICOLOR_FORCE=1
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+    vi-mode
     git
     osx
     node
