@@ -1,41 +1,33 @@
-set guicursor=
+" General
+set encoding=utf-8
+set number
 set noshowmatch
 set nohlsearch
 set hidden
 set noerrorbells
-set tabstop=4 softtabstop=4
-set shiftwidth=4
 set expandtab
 set smartindent
-set nu
 set nowrap
 set ignorecase
 set smartcase
 set noswapfile
 set nobackup
-set undodir=~/.vim/undodir
 set undofile
 set incsearch
-set termguicolors
-set scrolloff=8
 set splitright
 set splitbelow
-set backspace=indent,eol,start
+set scrolloff=8
+set tabstop=4 softtabstop=4
+set shiftwidth=4
 set guicursor=i:ver25-iCursor
+set backspace=indent,eol,start
+set cmdheight=2     " Give more space for displaying messages.
+set updatetime=50   " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
+set shortmess+=c    " Don't pass messages to |ins-completion-menu|.
+set undodir=~/.vim/undodir
+set tags=tags
 
-" Give more space for displaying messages.
-set cmdheight=2
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=50
-
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
-
-" set colorcolumn=100
-" highlight ColorColumn ctermbg=0 guibg=lightgrey
-
+" Plugins
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -46,11 +38,13 @@ Plug 'vim-utils/vim-man'
 Plug 'mbbill/undotree'
 Plug 'sheerun/vim-polyglot'
 
-" Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" NERDtree
+" Plug 'mileszs/ack.vim'
+
+Plug 'airblade/vim-gitgutter'
+
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -61,7 +55,6 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'vim-airline/vim-airline'
 Plug 'flazz/vim-colorschemes'
-Plug '/home/mpaulson/personal/vim-be-good'
 
 Plug 'tpope/vim-commentary'
 
@@ -70,17 +63,14 @@ Plug 'unblevable/quick-scope'
 Plug 'frazrepo/vim-rainbow'
 Plug 'jiangmiao/auto-pairs'
 
-" HTML close tags
 Plug 'alvan/vim-closetag'
 
 call plug#end()
 
+" Other settings
+let mapleader = " "
 
-"-----------------------------  QUICK SCOPE  ----------------------------------------
-
-" Trigger a highlight in the appropriate direction when pressing these keys:
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']   " Trigger a highlight in the appropriate direction when pressing these keys:
 augroup qs_colors
   autocmd!
   autocmd ColorScheme * highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
@@ -88,42 +78,37 @@ augroup qs_colors
 augroup END
 
 let g:qs_max_chars=150
-
 let g:rainbow_active = 1
 let g:AutoPairsFlyMode = 1
 
-"----------------------------- THEMES ----------------------------------------
-
+" Theme
+if (has("termguicolors"))
+    set termguicolors
+endif
+colorscheme monokai_pro
+set background=dark
 " let g:gruvbox_contrast_dark = 'hard'
 " if exists('+termguicolors')
-"    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-"    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " endif
 " let g:gruvbox_invert_selection='0'
 
-colorscheme monokai_pro
-set background=dark
-
-" --- The Greatest plugin of all time.  I am not bias
-" let g:vim_be_good_floating = 0
-
-
-"----------------------------- NERDtree ----------------------------------------
-
+" NERDtree
 let loaded_matchparen = 1
-let mapleader = " "
-
-" Configurac NERDtree
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeIgnore = ['\.pyc$', '\~$']
 let g:NERDTreeStatusline = ''
+
 " Automaticaly close nvim if NERDTree is only thing left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 " Toggle
 nnoremap <silent> <leader>b :NERDTreeToggle<CR>
+
 " sync open file with NERDTree
-" " Check if NERDTree is open or active
+" Check if NERDTree is open or active
 function! IsNERDTreeOpen()
   return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
 endfunction
@@ -140,12 +125,10 @@ endfunction
 " Highlight currently open buffer in NERDTree
 " autocmd BufEnter * call SyncTree()
 
-"-----------------------------FUZZY FINDER----------------------------------------
-
-"Config fuzzi finder
+" Fuzzy finder
 let g:netrw_browse_split = 2
 let g:vrfr_rg = 'true'
-let g:netrw_banner = 0
+let g:netrw_banner = 1
 let g:netrw_winsize = 25
 
 nnoremap <leader>p :FZF<CR>
@@ -156,21 +139,22 @@ let g:fzf_action = {
   \}
 "ignorar los node_modules de npm al buscar archivos
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-
 if executable('rg')
     let g:rg_derive_root='true'
 endif
 
-
+" Key mappings
 nnoremap <leader>pw :Rg <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>phw :h <C-R>=expand("<cword>")<CR><CR>
-nnoremap <leader>t :vsp<CR>
+
 nnoremap <leader>[ :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>] :wincmd l<CR>
 nnoremap <leader>u :UndotreeShow<CR>
-nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+nnoremap <leader>q :q!<CR>
+nnoremap <leader>w :x<CR>
+nnoremap <Leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <Leader>ps :Rg<SPACE>
 nnoremap <C-p> :GFiles<CR>
 nnoremap <Leader>pf :Files<CR>
@@ -182,7 +166,6 @@ nnoremap <Leader>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kk
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-" IMPORTANT: Some problems
 nnoremap ; :
 nnoremap : ;
 inoremap ; :
@@ -191,8 +174,7 @@ inoremap : ;
 vnoremap X "_d
 inoremap <C-c> <esc>
 
-"-----------------------------  COC  ----------------------------------------
-
+" COC
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
@@ -212,12 +194,10 @@ inoremap <silent><expr> <TAB>
             \ <SID>check_back_space() ? "\<TAB>" :
             \ coc#refresh()
 
-
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <silent><expr> <C-space> coc#refresh()
 
-" GoTo code navigation.
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gy <Plug>(coc-type-definition)
 nmap <leader>gi <Plug>(coc-implementation)
@@ -229,12 +209,11 @@ nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
 nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
 nnoremap <leader>cr :CocRestart
 
-"-----------------------------  FuGITive  ----------------------------------------
+" Fugitive
 nmap <leader>gj :diffget //3<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gs :G<CR>
-"---------------------------------------------------------------------------------
-"
+
 fun! TrimWhitespace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
@@ -248,14 +227,30 @@ augroup END
 
 autocmd BufWritePre * :call TrimWhitespace()
 
+" GITgutter
+" <leader>hp preview hunk
+" <leader>hs stage
+" <leader>hu undo
+" Documentation can be found at: https://github.com/airblade/vim-gitgutter
+let g:gitgutter_show_msg_on_hunk_jumping = 0
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
 
-"----------------------------- TERMINAL ----------------------------------------
+" Ack
+" if executable('ag')
+"   let g:ackprg = 'ag --vimgrep'
+" endif
+
+" cnoreabbrev Ack Ack!
+" nnoremap <Leader>a :Ack!<Space>
+
 " Terminal
 :tnoremap <Esc> <C-\><C-n>
 au BufEnter * if &buftype == 'terminal' | :startinsert | endif
-" Toggle 'default' terminal
+
 nnoremap <C-n> :call ChooseTerm("term-slider", 1)<CR>
 inoremap <C-n> <C-\><C-n>:call ChooseTerm("term-slider", 1)<CR>
+
 " Start terminal in current pane
 "nnoremap <C-k> :call ChooseTerm("term-pane", 0)<CR>
 
@@ -287,19 +282,16 @@ function! ChooseTerm(termname, slider)
     endif
 endfunction
 
-"----------------------------- COMENTARIOS ----------------------------------------
+" Commentary
 noremap <leader>/ :Commentary<cr>
 
-"-----------------------------  HTML vim-closetag ----------------------------------------
+" HTML auto closing
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 let g:closetag_filetypes = 'html,xhtml,phtml'
-" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
 let g:closetag_emptyTags_caseSensitive = 0
-" Disables auto-close if not in a "valid" region (based on filetype)
 let g:closetag_regions = {
     \ 'typescript.tsx': 'jsxRegion,tsxRegion',
     \ 'javascript.jsx': 'jsxRegion',
     \ }
-
 " Shortcut for closing tags, default is '>'
 let g:closetag_shortcut = '>'
