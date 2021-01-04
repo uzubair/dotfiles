@@ -26,6 +26,7 @@ set updatetime=50   " Having longer updatetime (default is 4000 ms = 4 s) leads 
 set shortmess+=c    " Don't pass messages to |ins-completion-menu|.
 set undodir=~/.vim/undodir
 set tags=tags
+set re=1
 
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
