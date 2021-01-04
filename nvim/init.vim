@@ -217,9 +217,9 @@ nmap <leader>ga ;Git add %:p<CR><CR>
 nmap <leader>gs ;Gstatus<CR>
 nmap <leader>gc ;Gcommit -v -q<CR>
 nmap <leader>gt ;Gcommit -v -q %:p<CR>
-nmap <leader>gd ;Gdiff<CR>
+nmap <leader>gdi ;Gdiff<CR>
 nmap <leader>ge ;Gedit<CR>
-nmap <leader>gr ;Gread<CR>
+nmap <leader>gre ;Gread<CR>
 nmap <leader>gw ;Gwrite<CR><CR>
 nmap <leader>gl ;silent! Glog<CR>:bot copen<CR>
 nmap <leader>gp ;Ggrep<Space>
