@@ -27,6 +27,7 @@ set shortmess+=c    " Don't pass messages to |ins-completion-menu|.
 set undodir=~/.vim/undodir
 set tags=tags
 set re=1
+set clipboard=unnamed
 
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
