@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:/Users/uzubair/dev/bin:/usr/local/opt/tcl-tk/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/opt/tcl-tk/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/uzubair/.oh-my-zsh"
@@ -123,23 +123,10 @@ fi
 
 if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='vim'
-#else
-#    export EDITOR='vim'
 fi
-
-#export KUBE_EDITOR=vim
-export _AUVIK_OPS_PROMPT_NO_OVERRIDE=1
-
-# Source env files
-source ${HOME}/dev/auvik_ops/dist/auvikrc
-source ${HOME}/dev/lab/custom-prompt
-source ${HOME}/dev/lab/custom-settings
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-source ${HOME}/dev/lab/aliases
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
