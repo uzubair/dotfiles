@@ -332,3 +332,7 @@ let g:closetag_regions = {
     \ }
 " Shortcut for closing tags, default is '>'
 let g:closetag_shortcut = '>'
+
+" YAML template syntax
+au! BufNewFile,BufReadPost *.{yaml,yml,tf,template} set filetype=yaml
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtabet g:closetag_shortcut = '>'
