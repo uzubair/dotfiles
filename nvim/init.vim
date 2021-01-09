@@ -100,8 +100,9 @@ set background=dark
 let loaded_matchparen = 1
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
-let g:NERDTreeIgnore = ['\.pyc$', '\~$']
+let g:NERDTreeIgnore = ['\.pyc$', '\~$', '_accounts']
 let g:NERDTreeStatusline = ''
+let NERDTreeMapOpenInTab='<ENTER>'
 
 " Automaticaly close nvim if NERDTree is only thing left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -162,8 +163,8 @@ nnoremap <Leader>ps :Rg<SPACE>
 nnoremap <C-p> :GFiles<CR>
 nnoremap <Leader>pf :Files<CR>
 nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
-nnoremap <Leader>+ :vertical resize +5<CR>
-nnoremap <Leader>- :vertical resize -5<CR>
+nnoremap <Leader>+ :vertical resize +20<CR>
+nnoremap <Leader>- :vertical resize -20<CR>
 nnoremap <Leader>rp :resize 100<CR>
 nnoremap <Leader>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
 vnoremap J :m '>+1<CR>gv=gv
@@ -334,5 +335,8 @@ let g:closetag_regions = {
 let g:closetag_shortcut = '>'
 
 " YAML template syntax
-au! BufNewFile,BufReadPost *.{yaml,yml,tf,template} set filetype=yaml
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtabet g:closetag_shortcut = '>'
+augroup ymlfiledetect
+  au BufRead,BufNewFile *.{yaml,yml,tf,template} set filetype=yaml
+  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+augroup END
+
