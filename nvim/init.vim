@@ -103,7 +103,7 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeIgnore = ['\.pyc$', '\~$', '_accounts']
 let g:NERDTreeStatusline = ''
-let NERDTreeMapOpenInTab='<ENTER>'
+" let NERDTreeMapOpenInTab='<ENTER>'
 
 " Automaticaly close nvim if NERDTree is only thing left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
