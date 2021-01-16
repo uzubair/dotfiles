@@ -43,6 +43,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Plug 'mileszs/ack.vim'
 
 Plug 'airblade/vim-gitgutter'
@@ -133,6 +134,7 @@ let g:netrw_browse_split = 2
 let g:vrfr_rg = 'true'
 let g:netrw_banner = 1
 let g:netrw_winsize = 25
+" let g:fzf_preview_window = []
 
 nnoremap <leader>p :FZF<CR>
 let g:fzf_action = {
@@ -140,7 +142,7 @@ let g:fzf_action = {
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit'
   \}
-"ignorar los node_modules de npm al buscar archivos
+
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 if executable('rg')
     let g:rg_derive_root='true'
