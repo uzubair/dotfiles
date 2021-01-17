@@ -73,12 +73,12 @@ call plug#end()
 " Other settings
 let mapleader = " "
 
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']   " Trigger a highlight in the appropriate direction when pressing these keys:
-augroup qs_colors
-  autocmd!
-  autocmd ColorScheme * highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
-  autocmd ColorScheme * highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
-augroup END
+" let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']   " Trigger a highlight in the appropriate direction when pressing these keys:
+" augroup qs_colors
+"   autocmd!
+"   autocmd ColorScheme * highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+"   autocmd ColorScheme * highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+" augroup END
 
 let g:qs_max_chars=150
 let g:rainbow_active = 1
@@ -127,14 +127,14 @@ function! SyncTree()
 endfunction
 
 " Highlight currently open buffer in NERDTree
-" autocmd BufEnter * call SyncTree()
+autocmd BufEnter * call SyncTree()
 
 " Fuzzy finder
 let g:netrw_browse_split = 2
 let g:vrfr_rg = 'true'
 let g:netrw_banner = 1
 let g:netrw_winsize = 25
-" let g:fzf_preview_window = []
+let g:fzf_preview_window = []
 
 nnoremap <leader>p :FZF<CR>
 let g:fzf_action = {
@@ -143,6 +143,7 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit'
   \}
 
+let $FZF_DEFAULT_OPTS='--height 10% --layout=reverse --border'
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 if executable('rg')
     let g:rg_derive_root='true'
