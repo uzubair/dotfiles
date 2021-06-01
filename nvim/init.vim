@@ -1,4 +1,37 @@
-" General
+" dotfiles/nvim/init.vim
+" Section: Plugins & Bootstrap
+
+call plug#begin('~/.config/nvim/plugged')
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'tweekmonster/gofmt.vim'
+  Plug 'vim-utils/vim-man'
+  Plug 'mbbill/undotree'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'airblade/vim-gitgutter'
+  Plug 'scrooloose/nerdtree'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+  Plug 'gruvbox-community/gruvbox'
+  Plug 'sainnhe/gruvbox-material'
+  Plug 'phanviet/vim-monokai-pro'
+  Plug 'vim-airline/vim-airline'
+  Plug 'flazz/vim-colorschemes'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-surround'
+  Plug 'unblevable/quick-scope'
+  Plug 'frazrepo/vim-rainbow'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'alvan/vim-closetag'
+  " Plug 'mileszs/ack.vim'
+call plug#end()
+
+" Section: Generice settings
+
 set encoding=utf-8
 set number
 set noshowmatch
@@ -21,61 +54,22 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set guicursor=i:ver25-iCursor
 set backspace=indent,eol,start
-set cmdheight=2     " Give more space for displaying messages.
-set updatetime=50   " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
-set shortmess+=c    " Don't pass messages to |ins-completion-menu|.
+" Give more space for displaying messages.
+set cmdheight=2
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
+set updatetime=50
+" Don't pass messages to |ins-completion-menu|
+set shortmess+=c
 set undodir=~/.vim/undodir
 set tags=tags
 set re=1
 set clipboard=unnamed
 set rnu
 
-" Plugins
-call plug#begin('~/.config/nvim/plugged')
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-Plug 'tweekmonster/gofmt.vim'
-Plug 'vim-utils/vim-man'
-Plug 'mbbill/undotree'
-Plug 'sheerun/vim-polyglot'
-
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" Plug 'mileszs/ack.vim'
-
-Plug 'airblade/vim-gitgutter'
-
-Plug 'scrooloose/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
-Plug 'gruvbox-community/gruvbox'
-Plug 'sainnhe/gruvbox-material'
-Plug 'phanviet/vim-monokai-pro'
-Plug 'vim-airline/vim-airline'
-Plug 'flazz/vim-colorschemes'
-
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-
-Plug 'unblevable/quick-scope'
-
-Plug 'frazrepo/vim-rainbow'
-Plug 'jiangmiao/auto-pairs'
-
-Plug 'alvan/vim-closetag'
-
-call plug#end()
-
-" Other settings
 let mapleader = " "
 
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']   " Trigger a highlight in the appropriate direction when pressing these keys:
+" Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 augroup qs_colors
   autocmd!
   autocmd ColorScheme * highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
@@ -86,7 +80,7 @@ let g:qs_max_chars=150
 let g:rainbow_active = 1
 let g:AutoPairsFlyMode = 1
 
-"Theme
+" Section: Theme
 if (has("termguicolors"))
     set termguicolors
 endif
