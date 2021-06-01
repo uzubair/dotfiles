@@ -28,6 +28,7 @@ set undodir=~/.vim/undodir
 set tags=tags
 set re=1
 set clipboard=unnamed
+set rnu
 
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
@@ -35,7 +36,6 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'tweekmonster/gofmt.vim'
-Plug 'tpope/vim-fugitive'
 Plug 'vim-utils/vim-man'
 Plug 'mbbill/undotree'
 Plug 'sheerun/vim-polyglot'
@@ -60,6 +60,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'flazz/vim-colorschemes'
 
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 
 Plug 'unblevable/quick-scope'
 
@@ -84,7 +86,7 @@ let g:qs_max_chars=150
 let g:rainbow_active = 1
 let g:AutoPairsFlyMode = 1
 
-" Theme
+"Theme
 if (has("termguicolors"))
     set termguicolors
 endif
