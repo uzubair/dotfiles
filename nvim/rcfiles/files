@@ -1,0 +1,5 @@
+nnoremap <C-p> :GFiles<CR>
+nnoremap <Leader>ps :Rg<SPACE>
+nnoremap <Leader>pf :Files<CR>
+
+" vim:ft=vim
