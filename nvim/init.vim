@@ -1,33 +1,43 @@
 " dotfiles/nvim/init.vim
-" Section: Plugins & Bootstrap
+" Section: Plugins
 
 call plug#begin('~/.config/nvim/plugged')
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'tweekmonster/gofmt.vim'
-  Plug 'vim-utils/vim-man'
-  Plug 'mbbill/undotree'
-  Plug 'sheerun/vim-polyglot'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
-  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-  Plug 'airblade/vim-gitgutter'
-  Plug 'scrooloose/nerdtree'
-  Plug 'ryanoasis/vim-devicons'
-  Plug 'Xuyuanp/nerdtree-git-plugin'
-  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-  Plug 'gruvbox-community/gruvbox'
-  Plug 'sainnhe/gruvbox-material'
-  Plug 'phanviet/vim-monokai-pro'
-  Plug 'vim-airline/vim-airline'
-  Plug 'flazz/vim-colorschemes'
-  Plug 'tpope/vim-commentary'
-  Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-surround'
-  Plug 'unblevable/quick-scope'
-  Plug 'frazrepo/vim-rainbow'
-  Plug 'jiangmiao/auto-pairs'
-  Plug 'alvan/vim-closetag'
-  " Plug 'mileszs/ack.vim'
+
+Plug 'scrooloose/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-eunuch'
+Plug 'sheerun/vim-polyglot'
+
+Plug 'mbbill/undotree'
+Plug 'airblade/vim-gitgutter'
+Plug 'ryanoasis/vim-devicons'
+
+Plug 'sainnhe/gruvbox-material'
+Plug 'gruvbox-community/gruvbox'
+Plug 'phanviet/vim-monokai-pro'
+Plug 'flazz/vim-colorschemes'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'tweekmonster/gofmt.vim'
+Plug 'vim-utils/vim-man'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'unblevable/quick-scope'
+Plug 'frazrepo/vim-rainbow'
+Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
+" Plug 'mileszs/ack.vim'
 call plug#end()
 
 " Section: Generice settings
@@ -54,12 +64,9 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set guicursor=i:ver25-iCursor
 set backspace=indent,eol,start
-" Give more space for displaying messages.
-set cmdheight=2
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
-set updatetime=50
-" Don't pass messages to |ins-completion-menu|
-set shortmess+=c
+set cmdheight=2 " Give more space for displaying messages.
+set updatetime=50 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
+set shortmess+=c " Don't pass messages to |ins-completion-menu|
 set undodir=~/.vim/undodir
 set tags=tags
 set re=1
@@ -86,21 +93,13 @@ if (has("termguicolors"))
 endif
 colorscheme monokai_pro
 set background=dark
-" let g:gruvbox_contrast_dark = 'hard'
-" if exists('+termguicolors')
-"   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-"   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-" endif
-" let g:gruvbox_invert_selection='0'
 
 " NERDtree
 let loaded_matchparen = 1
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
-let g:NERDTreeIgnore = ['\.pyc$', '\~$', '_accounts']
+let g:NERDTreeIgnore = ['\.pyc$', '\~$', '_accounts', 'node_modules']
 let g:NERDTreeStatusline = ''
-" let NERDTreeMapOpenInTab='<ENTER>'
-
 " Automaticaly close nvim if NERDTree is only thing left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
