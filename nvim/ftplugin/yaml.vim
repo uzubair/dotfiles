@@ -5,4 +5,3 @@ augroup ymlfiledetect
 augroup END
 
 " vim:ft=vim
-

@@ -34,6 +34,6 @@ function! ChooseTerm(termname, slider)
         :terminal
         :exe "f " a:termname
     endif
-endfunction 
+endfunction
 
 " vim:ft=vim

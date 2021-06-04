@@ -1,5 +1,0 @@
-Plug 'jiangmiao/auto-pairs'
-
-let g:AutoPairsFlyMode=1
-
-" vim:ft=vim

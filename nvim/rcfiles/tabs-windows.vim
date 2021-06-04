@@ -1,5 +1,4 @@
 " Tab and Windows configurations
-
 " Windows
 nnoremap <leader>[ :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
@@ -27,10 +26,5 @@ noremap <leader>0 :tablast<cr>
 au TabLeave * let g:lasttab = tabpagenr()
 nnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
 vnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
-
-" Save/ Quit
-nnoremap <leader>q :q!<CR>
-nnoremap <leader>w :w<CR>
-nnoremap <leader>x :x<CR>
 
 " vim:ft=vim

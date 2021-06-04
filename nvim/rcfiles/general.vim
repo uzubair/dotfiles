@@ -26,11 +26,19 @@ set updatetime=50	" Having longer updatetime leades to noticeable delays
 set shortmess+=c	" Don't pass msg to |ins-completion-menu|
 set undodir=~/.vim/undodir
 set tags=tags
-set clipboard=unnamed
+set clipboard=unnamedplus " or unnamed
 set splitright
 set splitbelow
 set scrolloff=8
 set re=1
+set spell spelllang=en_us
+" set background=dark
+set iskeyword+=-    " Treat dash separated words as a word text object
+" Mouse
+set mouse=a
+
+" To view `` in the markdown files
+set conceallevel=0
 
 " Softtabs, 2 spaces
 set tabstop=4
@@ -47,23 +55,6 @@ set number
 set numberwidth=2
 set relativenumber
 
-" Maps
-nnoremap ; :
-nnoremap : ;
-inoremap ; :
-inoremap : ;
-
-vnoremap X "_d
-inoremap <C-c> <esc>
-
-nnoremap <leader>pw :Rg <C-R>=expand("<cword>")<CR><CR>
-nnoremap <leader>phw :h <C-R>=expand("<cword>")<CR><CR>
-nnoremap <Leader><CR> :so ~/dotfiles/nvim/init.vim<CR>
-nnoremap <Leader>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
-
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-
 function! TrimWhitespace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
@@ -78,4 +69,3 @@ augroup END
 autocmd BufWritePre * :call TrimWhitespace()
 
 " vim:ft=vim
-
