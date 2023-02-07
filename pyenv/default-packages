@@ -1,0 +1,12 @@
+# Upgrage pip
+pip
+
+# Neovim should be able to run anywhere
+pynvim
+neovim-remote
+
+# Python language servers
+python-language-server[all]
+pyls-mypy
+future
+
