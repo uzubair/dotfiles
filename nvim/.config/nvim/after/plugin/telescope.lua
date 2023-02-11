@@ -45,11 +45,11 @@ telescope.setup({
           "/Users/uzubair/dotfiles"
         }
       }
-    },
-    projects.projects{}
+    }
   }
 })
 
 telescope.load_extension("fzf")
 telescope.load_extension("repo")
 telescope.load_extension("projects")
+telescope.load_extension("harpoon")

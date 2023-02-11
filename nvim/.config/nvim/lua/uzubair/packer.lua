@@ -43,6 +43,9 @@ return packer.startup(function(use)
   -- alternates to esc
   use { "jdhao/better-escape.vim", event="InsertEnter" }
 
+  -- Harpoon
+  use("theprimeagen/harpoon")
+
   -- essential plugins
   -- replace the contents using the gr + motion
   use("inkarkat/vim-ReplaceWithRegister")
@@ -69,6 +72,9 @@ return packer.startup(function(use)
     }
   }
 
+  -- Tmux
+  use("camgraff/telescope-tmux.nvim")
+
   -- statusline
   use("nvim-lualine/lualine.nvim")
 
@@ -91,9 +97,9 @@ return packer.startup(function(use)
 
   -- Fuzzy Finder (files, lsp, etc)
   use 'cljoly/telescope-repo.nvim'
-  use { 
-    'nvim-telescope/telescope.nvim', branch = '0.1.x', 
-    requires = { 
+  use {
+    'nvim-telescope/telescope.nvim', branch = '0.1.x',
+    requires = {
       'nvim-lua/plenary.nvim'
     }
   }
