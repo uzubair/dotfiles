@@ -32,3 +32,9 @@ autocmd({"BufWritePre"}, {
     pattern = "*",
     command = "%s/\\s\\+$//e",
 })
+
+autocmd({"BufEnter"}, {
+    group = TheUzubairGroup,
+    pattern = "*",
+    command = "if &ft !=? 'defx' && !&nu | set nu | endif"
+})
