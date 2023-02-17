@@ -1,0 +1,57 @@
+[user]
+  name = Usman Zubair
+  email = uzubair@gmail.com
+
+[core]
+  editor = nvim
+  excludesFile = ~/.gitignore
+  pager = delta
+  autocrlf = false
+
+[color]
+  status = auto
+  diff = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
+  grep = true
+
+[push]
+  default = current
+
+[pull]
+  rebase = false
+
+[rebase]
+  autoStash = true
+
+[alias]
+  # Thanks to r00k
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+
+[delta]
+  line-numbers = true
+  syntax-theme = gruvbox
+  side-by-side = false
+  file-modified-label = modified:
+
+[alias]
+    a = "!git status --short | peco | awk '{print $2}' | xargs git add"
+    d = diff
+    co = checkout
+    ci = commit
+    ca = commit -a
+    ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
+    pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
+    st = status
+    br = branch
+    ba = branch -a
+    bm = branch --merged
+    bn = branch --no-merged
+
+[interactive]
+  diffFilter = delta --color-only
+
+[credential]
+	helper = store

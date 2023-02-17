@@ -46,11 +46,13 @@ install_dotfiles() {
     local folders=(
         bin
         git
+        k9s
         karabiner
         kitty
         nvim
         tmux
-        starship
+        pypoetry
+        zsh
     )
     echo "Installing dotfiles..."
 
@@ -64,6 +66,9 @@ install_dotfiles() {
 
 # main entrypoint
 echo "Starting setting up DevEnv"
+
+echo "Setting up .zshenv"
+ln -s ${HOME}/dotfiles/zsh/.config/zsh/.zshenv ${HOME}/
 
 option="$1"
 case ${option} in
@@ -81,5 +86,20 @@ case ${option} in
         show_usage
         ;;
 esac
+
+# post installation setup
+echo "Creating symlinks for zsh"
+ln -s ${HOME}/dotfiles/zsh/.config/zsh/themes/mycustom.zsh-theme ${HOME}/.oh-my-zsh/themes/
+ln -s ${HOME}/dotfiles/zsh/.config/zsh/custom/aliases ${HOME}/.oh-my-zsh/custom/
+ln -s ${HOME}/dotfiles/zsh/.config/zsh/custom/helper_functions ${HOME}/.oh-my-zsh/custom/
+
+echo "Installing 'zsh-fzf-history-search' plugin"
+git clone https://github.com/joshskidmore/zsh-fzf-history-search ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-fzf-history-search
+
+echo "Creating symlinks for tmux config"
+ln -s ${HOME}/dotfiles/tmux/.config/tmux/.tmux.conf ${HOME}/.tmux.conf
+ln -s ${HOME}/dotfiles/tmux/.config/tmux/.tmux.macos.conf ${HOME}/.tmux.macos.conf
+ln -s ${HOME}/dotfiles/tmux/.config/tmux/.tmux-cht-commands ${HOME}/.tmux-cht-commands
+ln -s ${HOME}/dotfiles/tmux/.config/tmux/.tmux-cht-languages ${HOME}/.tmux-cht-languages
 
 echo "Done"

@@ -1,0 +1,10 @@
+dist/
+keyboards/
+vscode/
+homebrew/
+pyenv/
+\.git
+\.gitignore
+^/README.*
+^/Brewfile
+^/Makefile

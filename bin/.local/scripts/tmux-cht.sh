@@ -13,4 +13,3 @@ if grep -qs "$selected" ~/.tmux-cht-languages; then
 else
     tmux neww ksh -c "curl -s cht.sh/$selected/$query | less"
 fi
-

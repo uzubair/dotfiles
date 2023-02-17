@@ -1,0 +1,9 @@
+[package]
+disabled = true
+
+[aws]
+format = 'on [($profile )(\($region\) )]($style)'
+style = "bold yellow"
+
+[python]
+symbol = ""

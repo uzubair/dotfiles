@@ -1,6 +1,5 @@
 # General
 alias so=source
-# alias ll="ls -al"
 alias ll="exa --icons -lh"
 
 # Editor
@@ -13,19 +12,6 @@ alias ke="kubens"
 # Terraform and Terragrunt
 alias tf="terraform"
 alias tg="terragrunt"
-alias rmtf="rm -fr .terraform"
-alias rmtfi="rm -fr .terraform && tf init"
-alias rmtfip="rm -fr .terraform && tf init && tf plan"
-alias rmtfia="rm -fr .terraform && tf init && tf apply"
-alias tfi="tf init"
-alias tfp="tf plan"
-alias tfip="tf init && tf plan"
-alias tfa="tf apply"
-alias tfaf="tf apply -auto-approve"
-alias tfis="./init-local.sh"
-alias tfisp="./init-local.sh && tf plan"
-alias tfisa="./init-local.sh && tf apply"
-alias tfisaf="./init-local.sh && tf apply -auto-approve"
 
 # Snowflake
 alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
