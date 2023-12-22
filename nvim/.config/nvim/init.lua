@@ -1,1 +1,1 @@
-require("uzubair")
+require("uzubair.core")
