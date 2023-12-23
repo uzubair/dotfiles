@@ -27,7 +27,9 @@ return {
 				"python",
 				"markdown",
 				"markdown_inline",
-                "go"
+                "go",
+				"hcl",
+				"bash"
 			},
 			sync_install = false,
 			auto_install = true,

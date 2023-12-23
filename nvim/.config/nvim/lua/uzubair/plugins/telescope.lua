@@ -1,5 +1,5 @@
 return {
-	"nvim-telescope/telescope.nvim",
+	{ "nvim-telescope/telescope.nvim", lazy = false },
 	branch = "0.1.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
@@ -14,6 +14,7 @@ return {
 
 		telescope.setup({
 			defaults = {
+				prompt_prefix = ' > ',
 				layout_config = {
 					width = 0.80,
 					prompt_position = "top",
@@ -29,8 +30,6 @@ return {
 					"--column",
 					"--smart-case",
 				},
-				prompt_prefix = "  ",
-				selection_caret = "  ",
 				entry_prefix = "  ",
 				initial_mode = "insert",
 				selection_strategy = "reset",
@@ -65,8 +64,34 @@ return {
 					},
 				},
 			},
+			pickers = {
+				find_files = {
+					hidden = true,
+					no_ignore = false,
+				},
+				live_grep = {
+					additional_args = function() return { "-u", "--max-depth=99" } end
+				}
+			},
+			extensions = {
+				repo = {
+					list = {
+						layout_strategy = "vertical",
+						fd_opts = {
+							"--no-ignore-vcs"
+						},
+						search_dirs = {
+							"/Users/uzubair/workspace/git",
+							"/Users/uzubair/dotfiles"
+						}
+					}
+				}
+			}
 		})
 
 		telescope.load_extension("fzf")
+		telescope.load_extension("repo")
+		telescope.load_extension("projects")
+		telescope.load_extension("harpoon")
 	end,
 }

@@ -1,7 +1,7 @@
 return {
     "phaazon/hop.nvim",
     config = function()
-        local setup, hop = require("hop")
+        local hop = require("hop")
         hop.setup()
     end,
 }
