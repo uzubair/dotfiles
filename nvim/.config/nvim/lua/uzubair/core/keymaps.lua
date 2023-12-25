@@ -110,28 +110,3 @@ map('n', 'T', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.
 map('o', 't', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
 map('o', 'T', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
 
--- Telescope
--- keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, {desc = '[?] Find recently opened files'})
--- keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, {desc = 'Find existing buffers'})
--- keymap.set('n', '<leader>/', function()
---     -- You can pass additional configuration to telescope to change theme, layout, etc.
---     require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
---         winblend = 10,
---         previewer = false,
---     })
---     end, { desc = '[/] Fuzzily search in current buffer]' })
--- keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, {desc = 'Search Files'})
--- keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, {desc = 'Search Help'})
--- keymap.set('n', '<leader>fo', require('telescope.builtin').grep_string, {desc = 'Search current Word'})
--- keymap.set('n', '<leader>fs', require('telescope.builtin').lsp_document_symbols, {desc = 'Documet Symbols'})
--- keymap.set('n', '<leader>fy', require('telescope.builtin').lsp_dynamic_workspace_symbols, {desc = 'Workspace Symbols'})
--- keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, {desc = 'Search by Grep'})
--- keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, {desc = 'Search Diagnostics'})
--- keymap.set("n", "<leader>fb", require('telescope.builtin').git_branches, {desc = 'Search Braches'})
--- keymap.set("n", "<leader>fk", require('telescope.builtin').keymaps, {desc = 'Search Keymaps'})
--- keymap.set("n", "<leader>fr", ":Telescope repo list<CR>", {desc = 'Search Repos'})
--- keymap.set("n", "<leader>fp", ":Telescope projects<CR>", {desc = 'Search Repos'})
--- keymap.set("n", "<leader>ft", ":Telescope tmux sessions<CR>", {desc = 'Search tmux sessions'})
--- keymap.set("n", "<leader>fw", ":Telescope tmux windows<CR>", {desc = 'Search tmux windows'})
--- keymap.set("n", "<leader>fa", ":Telescope tmux pane_contents<CR>", {desc = 'Search in tmux pane\'s history'})
--- keymap.set("n", "<leader>fm", ":Telescope harpoon marks<CR>", {desc= 'Search for harpoon marks'})
