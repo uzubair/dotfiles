@@ -5,7 +5,7 @@ local o = vim.opt
 o.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor20"
 
 -- Setting history
-o.history = 99999
+o.history = 999
 
 -- Appearance
 o.termguicolors = true

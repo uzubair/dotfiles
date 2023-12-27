@@ -17,6 +17,18 @@ if not installed then
 end
 
 lazy.setup({
+	-- colorscheme settings
+	-- colorscheme = function()
+	-- 	require("gruvbox-community/gruvbox").load()
+	-- end,
+	-- load the default settings
+	defaults = {
+		keymaps = false,
+	},
+	news = {
+		lazyvim = true,
+		neovim = false,
+	},
 	-- importing directories
 	spec = {
 		{ import = "uzubair.plugins" },
