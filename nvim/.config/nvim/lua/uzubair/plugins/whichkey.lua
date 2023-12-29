@@ -40,8 +40,11 @@ return {
 			J = {mode="v", prefix=":m '<-2<CR>gv=gv", desc="Move selected text down"},
 			K = {mode="v", prefix=":m '<-2<CR>gv=gv", desc="Move selected text up"},
 			x = {'"_x', "Delete single char without copying to register" },
-			d = {mode='{"n", "x"}', prefix='"_d', desc="Delete for real"},
+			d = {mode={"n", "x"}, prefix='"_d', desc="Delete for real"},
 			D = {mode="x", prefix='"_dP', desc="Throws away the selected text and pastes"},
+
+			-- Undotree
+			u = {":UndotreeToggle<cr>", "Git Undotree"},
 
 			-- Control Operations
 			c = {
@@ -57,8 +60,8 @@ return {
 			},
 
 			-- Split
-			v = {":vsplit<cr>", "Split Vertically"},
-			h = {":split<cr>", "Split Vertically"},
+			V = {":vsplit<cr>", "Split Vertically"},
+			H = {":split<cr>", "Split Vertically"},
 
 			-- Vim-Maximizer: Mazimize split window
 			vm = {":MaximizerToggle<CR>"},
@@ -88,12 +91,25 @@ return {
 			-- Telescope
 			f = {
 				name = "Telescope",
-				f = { ":Telescope find_files theme=ivy<cr>", "Telescope find_files" },
-				w = { ":Telescope current_buffer_fuzzy_find theme=ivy<cr>", "Fuzzy Find in File" },
-				o = { ":Telescope oldfiles theme=ivy<cr>", "Telescope oldfiles" },
+				f = { ":Telescope find_files theme=ivy<cr>", "Search Files" },
+				h = { ":Telescope help_tags theme=ivy<cr>", "Search Help" },
+				e = { ":Telescope grep_string theme=ivy<cr>", "Search Current Word" },
+				s = { ":Telescope lsp_document_symbols theme=ivy<cr>", "Search Document Symbols" },
+				y = { ":Telescope lsp_dynamic_workspace_symbols theme=ivy<cr>", "Search Workspace Symbols" },
 				g = { ":Telescope live_grep theme=ivy<cr>", "Telescope live_grep" },
+				d = { ":Telescope diagnostics theme=ivy<cr>", "Search Diagnostics" },
+				c = { ":Telescope current_buffer_fuzzy_find theme=ivy<cr>", "Fuzzy Find in File" },
+				o = { ":Telescope oldfiles theme=ivy<cr>", "Telescope oldfiles" },
 				r = { ":Telescope resume theme=ivy<cr>", "Telescope resume" },
-				b = { ":Telescope buffers theme=ivy<cr>", "Telescope buffers" },
+				u = { ":Telescope buffers theme=ivy<cr>", "Telescope buffers" },
+				b = { ":Telescope git_branches theme=ivy<cr>", "Search Git Branches" },
+				k = { ":Telescope keymaps theme=ivy<cr>", "Search Keymaps" },
+				l = { ":Telescope repo list theme=ivy<cr>", "Search Git Repos" },
+				p = { ":Telescope projects theme=ivy<cr>", "Search Projects" },
+				w = { ":Telescope tmux windows theme=ivy<cr>", "Search Tmux Windows" },
+				t = { ":Telescope tmux sessions theme=ivy<cr>", "Search Tmux Sessions" },
+				a = { ":Telescope tmux pane_contents theme=ivy<cr>", "Search Tmux Pane History" },
+				m = { ":Telescope harpoon marks theme=ivy<cr>", "Search Harpoon Marks" },
 			},
 
 			-- Tab management
@@ -161,6 +177,30 @@ return {
 				p = {":<C-U>MarkdownPreview<CR>", "Start Preview Markdown"},
 				s = {":<C-U>MarkdownPreviewStop<CR>", "Stop Markdown Preview"},
 			},
+
+			-- Harpoon
+			h = {
+				name = "Harpoon",
+				a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "add file" },
+				r = { "<cmd>lua require('harpoon.mark').rm_file()<cr>", "remove file" },
+				m = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "harpoon menu" },
+				n = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", "next file" },
+				p = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", "previous file" },
+				["1"] = { "<cmd> lua require('harpoon.ui').nav_file(1)<cr>", "file 1" },
+				["2"] = { "<cmd> lua require('harpoon.ui').nav_file(2)<cr>", "file 2" },
+				["3"] = { "<cmd> lua require('harpoon.ui').nav_file(3)<cr>", "file 3" },
+			},
+
+			-- Hop
+			j = {
+				name = "Hop",
+				w = {mode="n", prefix="<cmd>lua require'hop'.hint_words()<cr>", desc="Hop Words" },
+				l = {mode="n", prefix="<cmd>lua require'hop'.hint_lines()<cr>", desc="Hop Lines"},
+				f = {mode={"n", "o"}, prefix="<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, inclusive_jump = true })<cr>", desc="Hop After Word"},
+				F = {mode={"n", "o"}, prefix="<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, inclusive_jump = true })<cr>", desc="Hop Before Word"},
+				t = {mode={"n", "o"}, prefix="<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", desc="Reverse Hop After Word"},
+				T = {mode={"n", "o"}, prefix="<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", desc="Reverse Hop Before Word"},
+			}
 		}
 
 		local opts = { prefix = "<leader>" }

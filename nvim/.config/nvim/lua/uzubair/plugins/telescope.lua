@@ -7,33 +7,35 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	},
-	keys = {
-		{"<leader>?", "<cmd>Telescope oldfiles<cr>", desc = "[?] Find recently opened files"},
-		{"<leader><space>", "<cmd>Telescope buffers<cr>", desc = "Find existing buffers"},
-		-- {"<leader>/", function()
+	-- keys = {
+	-- 	{"<leader>o", "<cmd>Telescope oldfiles<cr>", desc = "[?] Find recently opened files"},
+	-- 	{"<leader>u", "<cmd>Telescope buffers<cr>", desc = "Find existing buffers"},
+	-- 	-- {"<leader>/", function()
 		-- 	-- You can pass additional configuration to telescope to change theme, layout, etc.
 		-- 	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {
 		-- 		winblend = 10,
 		-- 		previewer = false,
 		-- 	})
 		-- 	end, desc = "[/] Fuzzily search in current buffer]"},
-		{"<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Search Files"},
-		{"<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Search Help"},
-		{"<leader>fo", "<cmd>Telescope grep_string<cr>", desc = "Search current Word"},
-		{"<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Documet Symbols"},
-		{"<leader>fy", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace Symbols"},
-		{"<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Search by Grep"},
-		{"<leader>fd", "<cmd>Telescope diagnostics<cr>", desc = "Search Diagnostics"},
-		{"<leader>fb", "<cmd>Telescope git_branches<cr>", desc = "Search Braches"},
-		{"<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Search Keymaps"},
-		{"<leader>fr", "<cmd>Telescope repo list<cr>", desc = "Search Repos"},
-		{"<leader>fp", "<cmd>Telescope projects<cr>", desc = "Search Repos"},
-		{"<leader>ft", "<cmd>Telescope tmux sessions<cr>", desc = "Search tmux sessions"},
-		{"<leader>fw", "<cmd>Telescope tmux windows<cr>", desc = "Search tmux windows"},
-		{"<leader>fa", "<cmd>Telescope tmux pane_contents<cr>", desc = "Search in tmux pane\"s history"},
-		{"<leader>fm", "<cmd>Telescope harpoon marks<cr>", desc= "Search for harpoon marks"},
-	},
-
+	-- 	{"<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Search Files"},
+	-- 	{"<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Search Help"},
+	-- 	{"<leader>fe", "<cmd>Telescope grep_string<cr>", desc = "Search current Word"},
+	-- 	{"<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Documet Symbols"},
+	-- 	{"<leader>fy", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace Symbols"},
+	-- 	{"<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Search by Grep"},
+	-- 	{"<leader>fd", "<cmd>Telescope diagnostics<cr>", desc = "Search Diagnostics"},
+	-- 	{"<leader>fb", "<cmd>Telescope git_branches<cr>", desc = "Search Braches"},
+	-- 	{"<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Search Keymaps"},
+	-- 	{"<leader>fc", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Fuzy Find in File"},
+	-- 	{"<leader>fr", "<cmd>Telescope resume<cr>", desc = "Telescope Resume"},
+	-- 	{"<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Search Keymaps"},
+	-- 	{"<leader>fl", "<cmd>Telescope repo list<cr>", desc = "Search Repos"},
+	-- 	{"<leader>fp", "<cmd>Telescope projects<cr>", desc = "Search Repos"},
+	-- 	{"<leader>ft", "<cmd>Telescope tmux sessions<cr>", desc = "Search tmux sessions"},
+	-- 	{"<leader>fw", "<cmd>Telescope tmux windows<cr>", desc = "Search tmux windows"},
+	-- 	{"<leader>fa", "<cmd>Telescope tmux pane_contents<cr>", desc = "Search in tmux pane\"s history"},
+	-- 	{"<leader>fm", "<cmd>Telescope harpoon marks<cr>", desc= "Search for harpoon marks"},
+	-- },
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")

@@ -7,6 +7,7 @@ return {
 		local nvimtree = require("nvim-tree")
 		nvimtree.setup({
 			auto_reload_on_write = true,
+			open_on_tab = false,
 			view = {
 				width = 30,
 				side = "left",

@@ -32,11 +32,14 @@ return {
 
 		dashboard.section.buttons.val = {
 			dashboard.button("e", "New file", "<cmd>ene <CR>"),
-			dashboard.button("SPC s f", "Find file"),
-			dashboard.button("SPC s o", "Recently opened files"),
-			dashboard.button("SPC s r", "Resume Telescope"),
-			dashboard.button("SPC s g", "Find word"),
-			dashboard.button("SPC s b", "Open buffers"),
+			dashboard.button("SPC e e", "Open File Tree"),
+			dashboard.button("SPC f f", "Search files"),
+			dashboard.button("SPC f o", "Search Recently opened files"),
+			dashboard.button("SPC f p", "Search Projects"),
+			dashboard.button("SPC f l", "Search Git Repositories"),
+			dashboard.button("SPC f g", "Search Git Branches"),
+			dashboard.button("SPC f u", "Current Buffers"),
+			dashboard.button("SPC f r", "Resume Telescope"),
 		}
 		_Gopts = {
 			position = "center",
@@ -45,7 +48,7 @@ return {
 		}
 
 		local function footer()
-			return "Programming is an art of patience not talent"
+			return "There is no knowledge that is not power..."
 		end
 
 		dashboard.section.footer.val = footer()
