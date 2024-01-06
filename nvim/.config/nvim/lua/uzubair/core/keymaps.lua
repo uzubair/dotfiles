@@ -3,18 +3,23 @@ local map = vim.api.nvim_set_keymap
 
 -- General
 
-vim.g.mapleader = " "
+vim.g.mapleader = ' '
 
 -- Remap semi-colon to colon
-keymap.set({"n", "i"}, ";", ":")
-keymap.set({"n", "i"}, ":", ";")
+keymap.set({ 'n', 'i' }, ';', ':')
+keymap.set({ 'n', 'i' }, ':', ';')
+
+keymap.set('n', '*', '*zz')
 
 -- Alternate ways to save and quit
--- keymap.set("n", "<leader>w", ":w<CR>")
--- keymap.set("n", "<leader>x", ":x<CR>")
+-- keymap.set("n", "<leader>s", ":w<CR>")
+-- keymap.set("n", "<leader>S", ":x!<CR>")
 -- keymap.set("n", "<leader>q", ":q<CR>")
 -- keymap.set("n", "<leader>Q", ":q!<CR>")
 -- keymap.set({"n", "i"}, "C-Q", ":qall<CR>")
+
+-- Enable execute mode
+-- keymap.set("n", "<leader>e", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Unhighlight searched elements
 -- keymap.set("n", "<C-m>", ":nohlsearch<cr>", { noremap = true, silent = true })
@@ -27,15 +32,8 @@ keymap.set({"n", "i"}, ":", ";")
 -- keymap.set("n", "<C-s>", '"+P', { noremap = true, silent = false })
 -- keymap.set("v", "<C-c>", '"+y', { noremap = true, silent = false })
 
--- BufferLine
-keymap.set("n", "<Tab>", ":BufferLineCycleNext<cr>", { noremap = true, silent = true })
-keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<cr>", { noremap = true, silent = true })
-
 -- Select all text
 -- keymap.set('n', "C-a", "gg<S-v>G")
-
--- Enable execute mode
--- keymap.set("n", "<leader>e", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Go to the beginning of command in command-line mode
 -- keymap.set("c", "<C-h>", "<HOME>")
@@ -59,6 +57,10 @@ keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<cr>", { noremap = true, silent 
 -- Move selected text up/ down
 -- keymap.set('v', "J", ":m '>+1<CR>gv=gv")
 -- keymap.set('v', "K", ":m '<-2<CR>gv=gv")
+
+-- BufferLine
+keymap.set('n', '<Tab>', ':BufferLineCycleNext<cr>', { noremap = true, silent = true })
+keymap.set('n', '<S-Tab>', ':BufferLineCyclePrev<cr>', { noremap = true, silent = true })
 
 -- Window Management
 -- keymap.set("n", "<leader>wv", "<C-w>v")       -- Split window vertically
@@ -109,4 +111,3 @@ keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<cr>", { noremap = true, silent 
 -- map('n', 'T', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
 -- map('o', 't', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
 -- map('o', 'T', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
-

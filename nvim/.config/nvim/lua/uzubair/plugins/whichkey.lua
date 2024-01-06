@@ -35,19 +35,30 @@ return {
 			q = { ":q<cr>", "Quit File" },
 			Q = { ":q!<cr>", "Force Quit File" },
 			w = { ":w<cr>", "Save File" },
-			W = { ":w!<cr>", "Force Save File" },
-			X = { ":x!<cr>", "Force Save and Quit File" },
+			W = { ":wq!<cr>", "Force Save File" },
+			-- s = { ":x<cr>", "Save and Quit File" },
+			-- S = { ":x!<cr>", "Force Save and Quit File" },
 			J = {mode="v", prefix=":m '<-2<CR>gv=gv", desc="Move selected text down"},
 			K = {mode="v", prefix=":m '<-2<CR>gv=gv", desc="Move selected text up"},
 			x = {'"_x', "Delete single char without copying to register" },
 			d = {mode={"n", "x"}, prefix='"_d', desc="Delete for real"},
 			D = {mode="x", prefix='"_dP', desc="Throws away the selected text and pastes"},
 
+			xe = {"<C-w>=", "Make split windows equal in width and height"},
+			xw = {":close<CR>", "Close the current window"},
+			xl = {":vertical resize +20<CR>", "Vertical resize +20"},
+			xm = {":vertical resize -20<CR>", "Vertical resize -20"},
+			h = {":wincmd h<CR>", "Move to left window"},
+			j = {":wincmd j<CR>", "Move to bottom window"},
+			k = {":wincmd k<CR>", "Move to top window"},
+			l = {":wincmd l<CR>", "Move to right window"},
+
 			-- Undotree
 			u = {":UndotreeToggle<cr>", "Git Undotree"},
 
 			-- Control Operations
-			c = {
+			o = {
+				name = "Control Operations",
 				a = {mode="n", prefix="gg<S-v>G", desc="Select all text"},
 				h = {mode="c", prefix="<HOME>", desc="Go to beginning of the command"},
 				d = {mode="i", prefix="<DEL>", desc="Delete the cursor to the right of the cursor"},
@@ -72,9 +83,9 @@ return {
 			-- Buffers
 			b = {
 				name = "buffers",
-
 				x = { ":bdelete<cr>", "Close Buffer" },
 				n = { ":bnext<cr>", "Next Buffer" },
+				p = { ":bprev<cr>", "Prev Buffer" },
 				l = { ":blast<cr>", "Last Buffer" },
 			},
 
@@ -124,27 +135,28 @@ return {
 			},
 
 			-- Split
-			p = {
-				name = "Window management",
-				e = {"<C-w>=", "Make split windows equal in width and height"},
-				x = {":close<CR>", "Close the current window"},
-				h = {":wincmd h<CR>", "Move to left window"},
-				j = {":wincmd j<CR>", "Move to bottom window"},
-				k = {":wincmd k<CR>", "Move to top window"},
-				l = {":wincmd l<CR>", "Move to right window"},
-				p = {":vertical resize +20<CR>", "Vertical resize +20"},
-				m = {":vertical resize -20<CR>", "Vertical resize -20"},
-			},
+			-- p = {
+			-- 	name = "Window management",
+			-- 	e = {"<C-w>=", "Make split windows equal in width and height"},
+			-- 	x = {":close<CR>", "Close the current window"},
+			-- 	h = {":wincmd h<CR>", "Move to left window"},
+			-- 	j = {":wincmd j<CR>", "Move to bottom window"},
+			-- 	k = {":wincmd k<CR>", "Move to top window"},
+			-- 	l = {":wincmd l<CR>", "Move to right window"},
+			-- 	p = {":vertical resize +20<CR>", "Vertical resize +20"},
+			-- 	m = {":vertical resize -20<CR>", "Vertical resize -20"},
+			-- },
 
 			-- Terminal
 			t = {
+				name = "Terminal",
 				t = { ":ToggleTerm<cr>", "Split Below" },
 				f = { toggle_float, "Floating Terminal" },
 				l = { toggle_lazygit, "LazyGit" },
 			},
 
 			-- Lsp Stuffs
-			l = {
+			c = {
 				name = "LSP",
 				i = { ":LspInfo<cr>", "Connected Language Servers" },
 				k = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
@@ -179,7 +191,7 @@ return {
 			},
 
 			-- Harpoon
-			h = {
+			p = {
 				name = "Harpoon",
 				a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "add file" },
 				r = { "<cmd>lua require('harpoon.mark').rm_file()<cr>", "remove file" },
@@ -189,18 +201,24 @@ return {
 				["1"] = { "<cmd> lua require('harpoon.ui').nav_file(1)<cr>", "file 1" },
 				["2"] = { "<cmd> lua require('harpoon.ui').nav_file(2)<cr>", "file 2" },
 				["3"] = { "<cmd> lua require('harpoon.ui').nav_file(3)<cr>", "file 3" },
+				["4"] = { "<cmd> lua require('harpoon.ui').nav_file(4)<cr>", "file 4" },
+				["5"] = { "<cmd> lua require('harpoon.ui').nav_file(5)<cr>", "file 5" },
+				["6"] = { "<cmd> lua require('harpoon.ui').nav_file(6)<cr>", "file 6" },
+				["7"] = { "<cmd> lua require('harpoon.ui').nav_file(7)<cr>", "file 7" },
+				["8"] = { "<cmd> lua require('harpoon.ui').nav_file(8)<cr>", "file 8" },
+				["9"] = { "<cmd> lua require('harpoon.ui').nav_file(9)<cr>", "file 9" },
 			},
 
 			-- Hop
-			j = {
-				name = "Hop",
-				w = {mode="n", prefix="<cmd>lua require'hop'.hint_words()<cr>", desc="Hop Words" },
-				l = {mode="n", prefix="<cmd>lua require'hop'.hint_lines()<cr>", desc="Hop Lines"},
-				f = {mode={"n", "o"}, prefix="<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, inclusive_jump = true })<cr>", desc="Hop After Word"},
-				F = {mode={"n", "o"}, prefix="<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, inclusive_jump = true })<cr>", desc="Hop Before Word"},
-				t = {mode={"n", "o"}, prefix="<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", desc="Reverse Hop After Word"},
-				T = {mode={"n", "o"}, prefix="<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", desc="Reverse Hop Before Word"},
-			}
+			-- s = {
+			-- 	name = "Hop",
+			-- 	w = {mode="n", prefix="<cmd>lua require'hop'.hint_words()<cr>", desc="Hop Words" },
+			-- 	l = {mode="n", prefix="<cmd>lua require'hop'.hint_lines()<cr>", desc="Hop Lines"},
+			-- 	f = {mode={"n", "o"}, prefix="<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, inclusive_jump = true })<cr>", desc="Hop After Word"},
+			-- 	F = {mode={"n", "o"}, prefix="<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, inclusive_jump = true })<cr>", desc="Hop Before Word"},
+			-- 	t = {mode={"n", "o"}, prefix="<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", desc="Reverse Hop After Word"},
+			-- 	T = {mode={"n", "o"}, prefix="<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", desc="Reverse Hop Before Word"},
+			-- }
 		}
 
 		local opts = { prefix = "<leader>" }

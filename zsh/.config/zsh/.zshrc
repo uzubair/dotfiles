@@ -75,6 +75,7 @@ source $ZSH/oh-my-zsh.sh
 [ -f $HOME/.asdf/asdf.sh ] && . $HOME/.asdf/asdf.sh
 
 source $HOME/.oh-my-zsh/custom/aliases
+source $HOME/.oh-my-zsh/custom/helper_functions
 
 case ${OS_ARCH} in
     !arm)

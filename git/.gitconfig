@@ -1,11 +1,10 @@
 [user]
   name = Usman Zubair
-  email = uzubair@gmail.com
+  email = uzubair@miovision.com
 
 [core]
   editor = nvim
   excludesFile = ~/.gitignore
-  pager = delta
   autocrlf = false
 
 [color]

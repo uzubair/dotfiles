@@ -9,7 +9,7 @@ return {
 			auto_reload_on_write = true,
 			open_on_tab = false,
 			view = {
-				width = 30,
+				width = 40,
 				side = "left",
 				number = true,
 				relativenumber = true,
