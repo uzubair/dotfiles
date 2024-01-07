@@ -10,4 +10,4 @@ return {
       autoclose = true,
       threshold = 900, -- 15 minutes
     },
-  }
+}

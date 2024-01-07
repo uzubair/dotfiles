@@ -74,8 +74,8 @@ source $ZSH/oh-my-zsh.sh
 [ -f $HOMEBREW_PREFIX/etc/profile.d/autojump.sh ] && . $HOMEBREW_PREFIX/etc/profile.d/autojump.sh
 [ -f $HOME/.asdf/asdf.sh ] && . $HOME/.asdf/asdf.sh
 
-source $HOME/.oh-my-zsh/custom/aliases
-source $HOME/.oh-my-zsh/custom/helper_functions
+source $HOME/.config/zsh/custom/aliases.zsh
+source $HOME/.config/zsh/custom/helper_functions.zsh
 
 case ${OS_ARCH} in
     !arm)
