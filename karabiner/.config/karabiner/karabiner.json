@@ -424,7 +424,7 @@
                         "product_id": 832,
                         "vendor_id": 1452
                     },
-                    "ignore": false,
+                    "ignore": true,
                     "manipulate_caps_lock_led": true,
                     "mouse_flip_horizontal_wheel": false,
                     "mouse_flip_vertical_wheel": false,
@@ -602,12 +602,32 @@
                     ]
                 }
             ],
-            "name": "Default profile",
+            "name": "Microsoft Ergonomics Keyboard",
             "parameters": {
                 "delay_milliseconds_before_open_device": 1000
             },
             "selected": true,
             "simple_modifications": [
+                {
+                    "from": {
+                        "key_code": "left_command"
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_option"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "left_option"
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_command"
+                        }
+                    ]
+                },
                 {
                     "from": {
                         "key_code": "right_alt"

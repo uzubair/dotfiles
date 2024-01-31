@@ -1,9 +1,10 @@
 return {
-    "ahmedkhalf/project.nvim",
+  'ahmedkhalf/project.nvim',
 
-    config = function()
-        require("project_nvim").setup {
-            -- Configuration in the future
-        }
-    end,
+  config = function()
+    require('project_nvim').setup {
+      -- Configuration in the future
+      manual_mode = true,
+    }
+  end,
 }

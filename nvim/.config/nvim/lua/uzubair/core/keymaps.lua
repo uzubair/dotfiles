@@ -17,3 +17,20 @@ keymap.set('n', '<C-u>', '<C-u>zz')
 -- BufferLine
 keymap.set('n', '<Tab>', ':BufferLineCycleNext<cr>', { noremap = true, silent = true })
 keymap.set('n', '<S-Tab>', ':BufferLineCyclePrev<cr>', { noremap = true, silent = true })
+
+-- Delete single char without copying to register
+keymap.set('n', 'x', '"_x')
+
+-- Delete lines without yanking it
+-- 'd' still cuts and 'p' still pastes
+-- <leader>d delets for real and <leader>p throws away
+-- the selected text and pastes the content of the default
+-- register
+-- map({"n", "v"}, "d", '"_d')
+-- map({"n", "v"}, "d", '"_d')
+keymap.set({ 'n', 'x' }, '<leader>d', '"_d')
+keymap.set('x', '<leader>p', '"_dP')
+
+-- Move selected text up/ down
+keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
