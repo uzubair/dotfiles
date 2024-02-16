@@ -6,7 +6,7 @@ require 'uzubair.core.autocmds'
 -- Configuration for better-escape plugin
 -- vim.g.better_escape_shortcut = "jk"
 
-# Terraform setup
+-- Terraform setup
 vim.cmd([[silent! autocmd! filetypedetect BufRead,BufNewFile *.tf]])
 vim.cmd([[autocmd BufRead,BufNewFile *.hcl set filetype=hcl]])
 vim.cmd([[autocmd BufRead,BufNewFile .terraformrc,terraform.rc set filetype=hcl]])
