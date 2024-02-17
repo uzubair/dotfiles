@@ -14,9 +14,10 @@ alias -g r=" | rg "
 
 alias tm='tmux "$@"'
 
-# Terraform
+# Terraform and k8s
 alias kc="kubectx"
 alias ke="kubens"
+alias ta="task"
 alias tf="terraform"
 alias tg="terragrunt"
 alias rmtf="rm -fr .terraform"

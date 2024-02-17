@@ -1,6 +1,5 @@
 # functions
-
-# Let's login
+# AWS SSO login
 function au() {
     AWS_PROFILE=default aws sso login
 }
@@ -22,7 +21,6 @@ function st () {
     elif [[ "$1" == "mio-master" ]]; then
     else
         kubectl config use-context $1
-        kubectl config set-context --current --namespace=coresystems
     fi
 }
 
@@ -37,15 +35,15 @@ function st-() {
     fi
 }
 
-# function kgetall {
-#   for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do
-#     echo "Resource:" $i
-#
-#     if [ -z "$1" ]
-#     then
-#         kubectl get --ignore-not-found ${i}
-#     else
-#         kubectl -n ${1} get --ignore-not-found ${i}
-#     fi
-#   done
-# }
+function kgetall {
+  for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do
+    echo "Resource:" $i
+
+    if [ -z "$1" ]
+    then
+        kubectl get --ignore-not-found ${i}
+    else
+        kubectl -n ${1} get --ignore-not-found ${i}
+    fi
+  done
+}
