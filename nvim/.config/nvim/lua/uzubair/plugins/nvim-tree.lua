@@ -15,7 +15,7 @@ return {
         relativenumber = true,
       },
       filters = {
-        dotfiles = true,
+        dotfiles = false,
       },
 
       renderer = {

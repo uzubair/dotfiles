@@ -10,6 +10,12 @@ return {
   { 'mbbill/undotree' },
   { 'nvim-telescope/telescope-live-grep-args.nvim' },
   {
+    'AckslD/nvim-neoclip.lua',
+    dependencies = {
+      { 'nvim-telescope/telescope.nvim' },
+    },
+  },
+  {
     'aaronhallaert/advanced-git-search.nvim',
     dependencies = {
       'nvim-telescope/telescope.nvim',

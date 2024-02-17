@@ -2,7 +2,6 @@ local keymap = vim.keymap
 local map = vim.api.nvim_set_keymap
 
 -- General
-
 vim.g.mapleader = ' '
 
 -- Remap semi-colon to colon
@@ -30,6 +29,13 @@ keymap.set('n', 'x', '"_x')
 -- map({"n", "v"}, "d", '"_d')
 keymap.set({ 'n', 'x' }, '<leader>d', '"_d')
 keymap.set('x', '<leader>p', '"_dP')
+
+-- Stay in indent mode
+keymap.set('v', '<', '<gv')
+keymap.set('v', '>', '>gv')
+
+-- Search for highlighted text in buffer
+keymap.set('v', '//', 'y/<C-R>"<CR>', { desc = 'Search for highlighted text' })
 
 -- Move selected text up/ down
 keymap.set('v', 'J', ":m '>+1<CR>gv=gv")

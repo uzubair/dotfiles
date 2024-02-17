@@ -1,7 +1,7 @@
 return {
 	{
 		-- indent guides for Neovim
-		"lukas-reineke/indent-blankline.nvim",
+		{ "lukas-reineke/indent-blankline.nvim"}, enabled = false },
 		config = function()
 			local highlight = {
 				"RainbowRed",

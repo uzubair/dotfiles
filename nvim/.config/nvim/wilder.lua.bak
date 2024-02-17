@@ -14,9 +14,11 @@ return {
 
     wilder.set_option(
       'renderer',
-      wilder.popupmenu_renderer {
+      wilder.popupmenu_renderer(wilder.popupmenu_palette_theme {
         highlighter = wilder.basic_highlighter(),
+        border = 'rounded',
         max_height = 15,
+        min_height = 0,
         left = { ' ', wilder.popupmenu_devicons() },
         right = { ' ', wilder.popupmenu_scrollbar() },
         apply_incsearch_fix = 0,
@@ -24,7 +26,7 @@ return {
           accent = wilder.make_hl('WilderAccent', 'Pmenu', { {}, {}, { foreground = '#f4468f' } }),
         },
         border = 'rounded',
-      }
+      })
     )
   end,
 }
