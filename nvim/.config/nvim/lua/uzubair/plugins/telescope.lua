@@ -125,6 +125,7 @@ return {
     telescope.load_extension 'harpoon'
     telescope.load_extension 'advanced_git_search'
     telescope.load_extension 'neoclip'
+    telescope.load_extension 'refactoring'
     -- telescope.load_extension 'noice'
   end,
 }
