@@ -58,6 +58,7 @@ plugins=(
   sudo
   yarn
   z
+  zsh-vi-mode
   zsh-fzf-history-search
 )
 
