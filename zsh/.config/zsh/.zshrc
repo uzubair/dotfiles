@@ -101,5 +101,8 @@ export PATH="$VOLTA_HOME/bin:/Users/uzubair/.local/bin:$(pyenv root)/shims:/usr/
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
 
+# Use the jk as a escapse key for zsh-vi-mode plugin
+ZVM_VI_ESCAPE_BINDKEY=jk
+
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
