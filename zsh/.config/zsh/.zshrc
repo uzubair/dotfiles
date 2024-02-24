@@ -91,7 +91,7 @@ source $HOME/.config/zsh/custom/helper_functions.zsh
 if which pyenv-init > /dev/null; then eval "$(pyenv init -)"; fi
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+# export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 export VOLTA_HOME="$HOME/.volta"
 export GOPATH=$HOME/workspace/git/go
@@ -103,6 +103,9 @@ bindkey "^[[1;3D" backward-word
 
 # Use the jk as a escapse key for zsh-vi-mode plugin
 ZVM_VI_ESCAPE_BINDKEY=jk
+
+typeset -g POWERLEVEL10K_INSTANT_PROMPT=quiet
+typeset -g POWERLEVEL10K_INSTANT_PROMPT=off
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
