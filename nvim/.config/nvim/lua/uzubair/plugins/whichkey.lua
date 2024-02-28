@@ -111,7 +111,7 @@ return {
         c = { ':Telescope current_buffer_fuzzy_find theme=ivy<cr>', 'Fuzzy Find in File' },
         o = { ':Telescope oldfiles theme=ivy<cr>', 'Telescope oldfiles' },
         i = { '<cmd>AdvancedGitSearch<cr>', 'AdvancedGitSearch' },
-        r = { '<cmd>Telescope neoclip<cr>', 'Telescope neoclip' },
+        j = { '<cmd>Telescope neoclip<cr>', 'Telescope neoclip' },
         -- r = { ':Telescope resume theme=ivy<cr>', 'Telescope resume' },
         u = { ':Telescope buffers theme=ivy<cr>', 'Telescope buffers' },
         b = { ':Telescope git_branches theme=ivy<cr>', 'Search Git Branches' },
