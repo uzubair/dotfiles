@@ -31,132 +31,7 @@ return {
 
     -- Keymaps
     local mappings = {
-      -- Basic Operations
-      q = { ':q<cr>', 'Quit File' },
-      Q = { ':q!<cr>', 'Force Quit File' },
-      w = { ':w<cr>', 'Save File' },
-      W = { ':wq!<cr>', 'Force Save File' },
-      x = { ':x<cr>', 'Save and Quit File' },
-      X = { ':x!<cr>', 'Force Save and Quit File' },
-      J = { mode = 'v', prefix = ":m '<-2<CR>gv=gv", desc = 'Move selected text down' },
-      K = { mode = 'v', prefix = ":m '<-2<CR>gv=gv", desc = 'Move selected text up' },
-      -- x = { '"_x', 'Delete single char without copying to register' },
-      -- d = { mode = { 'n', 'x' }, prefix = '"_d', desc = 'Delete for real' },
-      -- D = { mode = 'x', prefix = '"_dP', desc = 'Throws away the selected text and pastes' },
-
-      ne = { '<C-w>=', 'Make split windows equal in width and height' },
-      nw = { ':close<CR>', 'Close the current window' },
-      nl = { ':vertical resize +20<CR>', 'Vertical resize +20' },
-      nm = { ':vertical resize -20<CR>', 'Vertical resize -20' },
-      h = { ':wincmd h<CR>', 'Move to left window' },
-      j = { ':wincmd j<CR>', 'Move to bottom window' },
-      k = { ':wincmd k<CR>', 'Move to top window' },
-      l = { ':wincmd l<CR>', 'Move to right window' },
-
-      -- Undotree
-      u = { ':UndotreeToggle<cr>', 'Git Undotree' },
-
-      -- Control Operations
-      o = {
-        name = 'Control Operations',
-        a = { mode = 'n', prefix = 'gg<S-v>G', desc = 'Select all text' },
-        h = { mode = 'c', prefix = '<HOME>', desc = 'Go to beginning of the command' },
-        d = { mode = 'i', prefix = '<DEL>', desc = 'Delete the cursor to the right of the cursor' },
-        x = { mode = 'n', prefix = '<cmd>!chmod +x %<CR>', desc = 'Enable execute mode', silent = true },
-        c = { mode = 'v', prefix = '"+y', noremap = true, desc = 'Copy the text' },
-        s = { mode = 'n', prefix = '"+P', noremap = true, desc = 'Paste the text' },
-        m = { mode = 'n', prefix = ':nohlsearch<cr>', noremap = false, silent = false, desc = 'Unhighlight searched elements' },
-      },
-
-      -- Split
-      V = { ':vsplit<cr>', 'Split Vertically' },
-      H = { ':split<cr>', 'Split Vertically' },
-
-      -- Vim-Maximizer: Mazimize split window
-      vm = { ':MaximizerToggle<CR>' },
-
-      -- Vim-fugutive for git commands
-      g = { ':G<cr>', 'Vim fugitive' },
-
-      -- Buffers
-      b = {
-        name = 'buffers',
-        x = { ':bdelete<cr>', 'Close Buffer' },
-        n = { ':bnext<cr>', 'Next Buffer' },
-        p = { ':bprev<cr>', 'Prev Buffer' },
-        l = { ':blast<cr>', 'Last Buffer' },
-      },
-
-      Ec = { ':e ~/.config/nvim<cr>', 'Edit Configs' },
-
-      -- NvimTree
-      e = {
-        name = 'NvimTree',
-        e = { ':NvimTreeToggle<cr>', 'NvimTreeToggle' },
-        f = { ':NvimTreeFocus<cr>', 'NvimTreeFocus' },
-        h = { ':e ~/<cr>', 'NvimTreeHome' },
-      },
-
-      -- Telescope
-      f = {
-        name = 'Telescope',
-        f = { ':Telescope git_files theme=ivy<cr>', 'Search Git Files' },
-        g = { ':Telescope find_files theme=ivy<cr>', 'Search Files' },
-        h = { ':Telescope help_tags theme=ivy<cr>', 'Search Help' },
-        e = { ':Telescope grep_string theme=ivy<cr>', 'Search Current Word' },
-        s = { ':Telescope lsp_document_symbols theme=ivy<cr>', 'Search Document Symbols' },
-        y = { ':Telescope lsp_dynamic_workspace_symbols theme=ivy<cr>', 'Search Workspace Symbols' },
-        l = { ':Telescope live_grep theme=ivy<cr>', 'Telescope live_grep' },
-        d = { ':Telescope diagnostics theme=ivy<cr>', 'Search Diagnostics' },
-        c = { ':Telescope current_buffer_fuzzy_find theme=ivy<cr>', 'Fuzzy Find in File' },
-        o = { ':Telescope oldfiles theme=ivy<cr>', 'Telescope oldfiles' },
-        i = { '<cmd>AdvancedGitSearch<cr>', 'AdvancedGitSearch' },
-        j = { '<cmd>Telescope neoclip<cr>', 'Telescope neoclip' },
-        -- r = { ':Telescope resume theme=ivy<cr>', 'Telescope resume' },
-        u = { ':Telescope buffers theme=ivy<cr>', 'Telescope buffers' },
-        b = { ':Telescope git_branches theme=ivy<cr>', 'Search Git Branches' },
-        k = { ':Telescope keymaps theme=ivy<cr>', 'Search Keymaps' },
-        r = { ':Telescope repo list theme=ivy<cr>', 'Search Git Repos' },
-        p = { ':Telescope projects theme=ivy<cr>', 'Search Projects' },
-        w = { ':Telescope tmux windows theme=ivy<cr>', 'Search Tmux Windows' },
-        t = { ':Telescope tmux sessions theme=ivy<cr>', 'Search Tmux Sessions' },
-        a = { ':Telescope tmux pane_contents theme=ivy<cr>', 'Search Tmux Pane History' },
-        m = { ':Telescope harpoon marks theme=ivy<cr>', 'Search Harpoon Marks' },
-      },
-
-      -- Tab management
-      T = {
-        name = 'Tabs',
-        o = { ':tabnew<CR>', 'Open wew tab' },
-        x = { ':tabclose<CR>', 'Close current tab' },
-        n = { ':tabn<CR>', 'Go to next tab' },
-        p = { ':tabp<CR>', 'Go to previous tab' },
-        -- Tagbar for function list
-        f = { ':TagbarToggle<cr>', 'Functions List Tagbar' },
-      },
-
-      -- Split
-      -- p = {
-      -- 	name = "Window management",
-      -- 	e = {"<C-w>=", "Make split windows equal in width and height"},
-      -- 	x = {":close<CR>", "Close the current window"},
-      -- 	h = {":wincmd h<CR>", "Move to left window"},
-      -- 	j = {":wincmd j<CR>", "Move to bottom window"},
-      -- 	k = {":wincmd k<CR>", "Move to top window"},
-      -- 	l = {":wincmd l<CR>", "Move to right window"},
-      -- 	p = {":vertical resize +20<CR>", "Vertical resize +20"},
-      -- 	m = {":vertical resize -20<CR>", "Vertical resize -20"},
-      -- },
-
-      -- Terminal
-      t = {
-        name = 'Terminal',
-        t = { ':ToggleTerm<cr>', 'Split Below' },
-        f = { toggle_float, 'Floating Terminal' },
-        l = { toggle_lazygit, 'LazyGit' },
-      },
-
-      -- Lsp Stuffs
+      -- Lsp
       c = {
         name = 'LSP',
         i = { ':LspInfo<cr>', 'Connected Language Servers' },
@@ -177,18 +52,118 @@ return {
         e = { '<cmd>Lspsaga show_line_diagnostics<cr>', 'Show Line Diagnostics' },
         n = { '<cmd>Lspsaga diagnostic_jump_next<cr>', 'Go To Next Diagnostic' },
         N = { '<cmd>Lspsaga diagnostic_jump_prev<cr>', 'Go To Previous Diagnostic' },
-      },
-
-      -- Code Formatting
-      F = {
-        name = 'Code Formoat',
+        -- Code Formatting
         M = { ':lua vim.lsp.buf.format()<cr>', 'Format code' },
       },
 
+      -- Buffers
+      b = {
+        name = 'Buffers',
+        x = { ':bdelete<cr>', 'Close Buffer' },
+        n = { ':bnext<cr>', 'Next Buffer' },
+        p = { ':bprev<cr>', 'Prev Buffer' },
+        l = { ':blast<cr>', 'Last Buffer' },
+      },
+
+      -- NvimTree
+      e = {
+        name = 'NvimTree',
+        e = { ':NvimTreeToggle<cr>', 'NvimTreeToggle' },
+        f = { ':NvimTreeFocus<cr>', 'NvimTreeFocus' },
+        h = { ':e ~/<cr>', 'NvimTreeHome' },
+      },
+
+      -- Telescope
+      f = {
+        name = 'Telescope',
+        o = { ':Telescope oldfiles theme=ivy<cr>', 'Telescope oldfiles' },
+        f = { ':Telescope find_files theme=ivy<cr>', 'Search Files' },
+        g = { ':Telescope git_files theme=ivy<cr>', 'Search Git Files' },
+        e = { ':Telescope grep_string theme=ivy<cr>', 'Search Current Word' },
+        l = { ':Telescope live_grep theme=ivy<cr>', 'Telescope live_grep' },
+        s = { ':Telescope lsp_document_symbols theme=ivy<cr>', 'Search Document Symbols' },
+        Y = { ':Telescope lsp_dynamic_workspace_symbols theme=ivy<cr>', 'Search Workspace Symbols' },
+        d = { ':Telescope diagnostics theme=ivy<cr>', 'Search Diagnostics' },
+        a = { '<cmd>AdvancedGitSearch<cr>', 'AdvancedGitSearch' },
+        n = { '<cmd>Telescope neoclip<cr>', 'Telescope neoclip' },
+        u = { ':Telescope buffers theme=ivy<cr>', 'Telescope buffers' },
+        b = { ':Telescope git_branches theme=ivy<cr>', 'Search Git Branches' },
+        k = { ':Telescope keymaps theme=ivy<cr>', 'Search Keymaps' },
+        r = { ':Telescope repo list theme=ivy<cr>', 'Search Git Repos' },
+        p = { ':Telescope projects theme=ivy<cr>', 'Search Projects' },
+        w = { ':Telescope tmux windows theme=ivy<cr>', 'Search Tmux Windows' },
+        t = { ':Telescope tmux sessions theme=ivy<cr>', 'Search Tmux Sessions' },
+        h = { ':Telescope harpoon marks theme=ivy<cr>', 'Search Harpoon Marks' },
+        c = { ':Telescope current_buffer_fuzzy_find theme=ivy<cr>', 'Fuzzy Find in File' },
+        -- a = { ':Telescope tmux pane_contents theme=ivy<cr>', 'Search Tmux Pane History' },
+        -- h = { ':Telescope help_tags theme=ivy<cr>', 'Search Help' },
+        -- r = { ':Telescope resume theme=ivy<cr>', 'Telescope resume' },
+      },
+
+      -- Control Operations
+      g = {
+        name = 'Control Operations',
+        a = { mode = 'n', prefix = 'gg<S-v>G', desc = 'Select all text' },
+        h = { mode = 'c', prefix = '<HOME>', desc = 'Go to beginning of the command' },
+        d = { mode = 'i', prefix = '<DEL>', desc = 'Delete the cursor to the right of the cursor' },
+        x = { mode = 'n', prefix = '<cmd>!chmod +x %<CR>', desc = 'Enable execute mode', silent = true },
+        c = { mode = 'v', prefix = '"+y', noremap = true, desc = 'Copy the text' },
+        s = { mode = 'n', prefix = '"+P', noremap = true, desc = 'Paste the text' },
+        m = { mode = 'n', prefix = ':nohlsearch<cr>', noremap = false, silent = false, desc = 'Unhighlight searched elements' },
+      },
+
+      -- Windows & Tab management
+      w = {
+        name = 'Windows & Tabs',
+        -- Windows
+        v = { ':vsplit<cr>', 'Split Vertically' },
+        h = { ':split<cr>', 'Split Vertically' },
+        i = { ':vertical resize +20<CR>', 'Vertical resize +20' },
+        d = { ':vertical resize -20<CR>', 'Vertical resize -20' },
+        e = { '<C-w>=', 'Make split windows equal in width and height' },
+        q = { ':close<CR>', 'Close the current window' },
+        -- Tabs
+        o = { ':tabnew<CR>', 'Open wew tab' },
+        n = { ':tabn<CR>', 'Go to next tab' },
+        p = { ':tabp<CR>', 'Go to previous tab' },
+        x = { ':tabclose<CR>', 'Close current tab' },
+        -- Vim-Maximizer: Mazimize split window
+        m = { ':MaximizerToggle<CR>' },
+        -- Tagbar for function list
+        f = { ':TagbarToggle<cr>', 'Functions List Tagbar' },
+      },
+
+      -- Windows Selection
+      h = { ':wincmd h<CR>', 'Move to left window' },
+      j = { ':wincmd j<CR>', 'Move to bottom window' },
+      k = { ':wincmd k<CR>', 'Move to top window' },
+      l = { ':wincmd l<CR>', 'Move to right window' },
+
+      -- Markdown
       m = {
         name = 'Markdown controls',
         p = { ':<C-U>MarkdownPreview<CR>', 'Start Preview Markdown' },
         s = { ':<C-U>MarkdownPreviewStop<CR>', 'Stop Markdown Preview' },
+      },
+
+      -- Notes using Obsidian
+      n = {
+        name = 'Obsidian',
+        o = { ':ObsidianOpen<CR>', 'Obsidian Open' },
+        b = { ':ObsidianBacklinks<CR>', 'Obsidian Backlinks' },
+        c = { ':ObsidianToday<CR>', 'Obsidian Today' },
+        t = { ':ObsidianTomorrow<CR>', 'Obsidian Tomorrow' },
+        y = { ':ObsidianYesterday<CR>', 'Obsidian Yesterday' },
+        s = { ':ObsidianSearch<CR>', 'Obsidian Search' },
+      },
+
+      -- Terminal
+      t = {
+        name = 'Terminal',
+        t = { ':ToggleTerm<cr>', 'Split Below' },
+        f = { toggle_float, 'Floating Terminal' },
+        l = { toggle_lazygit, 'LazyGit' },
+        g = { ':G<cr>', 'Vim fugitive' },
       },
 
       -- Harpoon
@@ -210,16 +185,15 @@ return {
         ['9'] = { "<cmd> lua require('harpoon.ui').nav_file(9)<cr>", 'file 9' },
       },
 
-      -- Hop
-      -- s = {
-      -- 	name = "Hop",
-      -- 	w = {mode="n", prefix="<cmd>lua require'hop'.hint_words()<cr>", desc="Hop Words" },
-      -- 	l = {mode="n", prefix="<cmd>lua require'hop'.hint_lines()<cr>", desc="Hop Lines"},
-      -- 	f = {mode={"n", "o"}, prefix="<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, inclusive_jump = true })<cr>", desc="Hop After Word"},
-      -- 	F = {mode={"n", "o"}, prefix="<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, inclusive_jump = true })<cr>", desc="Hop Before Word"},
-      -- 	t = {mode={"n", "o"}, prefix="<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", desc="Reverse Hop After Word"},
-      -- 	T = {mode={"n", "o"}, prefix="<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", desc="Reverse Hop Before Word"},
-      -- }
+      -- Refactor
+      r = {
+        name = 'Refactor Code',
+        n = { ':IncRename', 'Rename' },
+        r = { mode = { 'n', 'x' }, prefix = "<cmd>lua require('telescope').extensions.refactoring.refactors()", desc = 'Refactor' },
+      },
+
+      -- Undotree
+      u = { ':UndotreeToggle<cr>', 'Git Undotree' },
     }
 
     local opts = { prefix = '<leader>' }

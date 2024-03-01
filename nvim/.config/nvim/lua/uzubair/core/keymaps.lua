@@ -42,8 +42,7 @@ keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- LSP renaming with immediate visual feedbac
-keymap.set('n', '<leader>rn', ':IncRename')
-
-keymap.set({ 'n', 'x' }, '<leader>rr', function()
-  require('telescope').extensions.refactoring.refactors()
-end)
+-- keymap.set('n', '<leader>rn', ':IncRename')
+-- keymap.set({ 'n', 'x' }, '<leader>rr', function()
+--   require('telescope').extensions.refactoring.refactors()
+-- end)
