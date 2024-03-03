@@ -81,15 +81,18 @@ return {
 
       -- Notes using Obsidian
       n = {
-        name = 'Obsidian',
+        name = 'Obsidian Notes',
+        n = { ':ObsidianNew<CR>', 'Obsidian New' },
         o = { ':ObsidianOpen<CR>', 'Obsidian Open' },
         b = { ':ObsidianBacklinks<CR>', 'Obsidian Backlinks' },
         c = { ':ObsidianToday<CR>', 'Obsidian Today' },
         t = { ':ObsidianTomorrow<CR>', 'Obsidian Tomorrow' },
         y = { ':ObsidianYesterday<CR>', 'Obsidian Yesterday' },
         s = { ':ObsidianSearch<CR>', 'Obsidian Search' },
-      },      
-      
+        w = { ':ObsidianWorkspace<CR>', 'Obsidian Switch Workspace' },
+        r = { ':ObsidianRename<CR>', 'Obsidian Rename Note' },
+      },
+
       -- Markdown
       p = {
         name = 'Markdown controls',
@@ -101,9 +104,13 @@ return {
       r = {
         name = 'Refactor Code',
         -- n = { ':IncRename', 'Rename' },
-        r = { mode = { 'n', 'x' }, prefix = "<cmd>lua require('telescope').extensions.refactoring.refactors()", desc = 'Refactor' },
-      },      
-      
+        r = {
+          mode = { 'n', 'x' },
+          prefix = "<cmd>lua require('telescope').extensions.refactoring.refactors()",
+          desc = 'Refactor',
+        },
+      },
+
       -- Terminal
       t = {
         name = 'Terminal',
@@ -113,8 +120,8 @@ return {
         g = { ':G<cr>', 'Vim fugitive' },
       },
 
-      x = { mode = {'n'}, prefix = '<cmd>!chmod +x %<CR>', desc = 'Enable execute mode', silent = true },
-      
+      x = { mode = { 'n' }, prefix = '<cmd>!chmod +x %<CR>', desc = 'Enable execute mode', silent = true },
+
       -- Undotree
       u = { ':UndotreeToggle<cr>', 'Git Undotree' },
     }

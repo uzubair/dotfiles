@@ -65,6 +65,7 @@ return {
     pcall(require('telescope').load_extension, 'refactoring')
     pcall(require('telescope').load_extension, 'neoclip')
     pcall(require('telescope').load_extension, 'advanced_git_search')
+    pcall(require('telescope').load_extension, 'obsidian')
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'

@@ -7,7 +7,7 @@ return {
     'MunifTanjim/nui.nvim',
   },
   config = function()
-    vim.keymap.set('n', '<leader>b', ':Neotree toggle<CR>', { desc = 'Toggle FileSystem' })
+    vim.keymap.set('n', '<leader>e', ':Neotree toggle<CR>', { desc = 'Toggle FileSystem' })
     local neotree = require 'neo-tree'
     neotree.setup {
       close_if_last_window = true,
