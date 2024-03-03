@@ -1,57 +1,44 @@
 return {
-  'nvim-treesitter/nvim-treesitter',
-
-  dependencies = {
-    'JoosepAlviste/nvim-ts-context-commentstring',
-    'windwp/nvim-ts-autotag',
-    'hiphish/rainbow-delimiters.nvim',
-    'windwp/nvim-autopairs',
+  { -- Highlight, edit, and navigate code
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    config = function()
+      ---@diagnostic disable-next-line: missing-fields
+      require('nvim-treesitter.configs').setup {
+        ensure_installed = {
+          'bash',
+          'c',
+          'html',
+          'lua',
+          'markdown',
+          'vim',
+          'vimdoc',
+          'lua',
+          'css',
+          'javascript',
+          'typescript',
+          'python',
+          'go',
+          'hcl',
+          'terraform',
+          'yaml',
+          'json',
+          'graphql',
+          'make',
+          'toml',
+          'sql',
+          'java',
+          'jq',
+          'jsonnet',
+          'kotlin',
+          'make',
+          'dockerfile',
+        },
+        -- Autoinstall languages that are not installed
+        auto_install = true,
+        highlight = { enable = true },
+        indent = { enable = true },
+      }
+    end,
   },
-
-  build = ':TSUpdate',
-  event = 'bufWinEnter',
-
-  config = function()
-    local treesitter = require 'nvim-treesitter.configs'
-    treesitter.setup {
-      ensure_installed = {
-        'c',
-        'lua',
-        'vim',
-        'vimdoc',
-        'html',
-        'css',
-        -- "java",
-        'javascript',
-        'typescript',
-        'python',
-        'markdown',
-        'markdown_inline',
-        'go',
-        'hcl',
-        'bash',
-        'terraform',
-        'yaml',
-        'json',
-        'graphql',
-        'make',
-        'toml',
-      },
-      sync_install = false,
-      auto_install = true,
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-      },
-      autotag = {
-        enable = true,
-      },
-      autopairs = {
-        enable = true,
-      },
-      rainbow = {
-        enable = true,
-      },
-    }
-  end,
 }

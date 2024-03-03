@@ -1,9 +1,9 @@
 return {
-    "cljoly/telescope-repo.nvim",
+  'cljoly/telescope-repo.nvim',
 
-    config = function()
-        require("project_nvim").setup {
-            -- Configuration in the future
-        }
-    end,
+  config = function()
+    require('project_nvim').setup {
+      -- Configuration in the future
+    }
+  end,
 }

@@ -1,133 +1,71 @@
-local o = vim.opt
+-- [ Setting options ]
 
--- Setup cursor color and shape in various modes, ref:
--- https:// github.com/neovim/neovim/wiiki/FAQ#how-to-change-cursor-color-in-the-terminal
-o.guicursor = 'n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor2/lCursor2,r-cr:hor20,o:hor20'
+-- Set history
+vim.opt.history = 1000
 
--- Setting history
-o.history = 999
+-- Enable line numbers
+vim.opt.number = true
+vim.opt.relativenumber = true
+
+-- Enable mouse mode, can be useful for resizing splits for example!
+vim.opt.mouse = 'a'
+
+-- Don't show the mode, since it's already in status line
+vim.opt.showmode = false
+
+-- Sync clipboard between OS and Neovim.
+vim.opt.clipboard = 'unnamedplus'
+
+-- Enable break indent
+vim.opt.breakindent = true
+
+-- Save undo history
+vim.opt.undofile = true
+
+-- Case-insensitive searching UNLESS \C or capital in search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
 
 -- Appearance
-o.termguicolors = true
-o.signcolumn = 'yes'
-o.pumheight = 10
-o.cmdheight = 2
-o.conceallevel = 0
-o.scrolloff = 15
+vim.opt.signcolumn = 'yes'
+-- vim.opt.pumheight = 10
+vim.opt.cmdheight = 1
+vim.opt.conceallevel = 0
+vim.opt.scrolloff = 10
+-- vim.opt.sidescrolloff = 5
 
--- Line numbers
-o.nu = true
-o.relativenumber = true
--- o.numberwidth = 2
+-- Decrease update time
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
 
--- Tabs and indentation
-o.tabstop = 2
-o.softtabstop = 2
-o.shiftwidth = 2
-o.expandtab = true
-o.smartindent = true
+-- Configure how new splits should be opened
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
--- Line wrapping
-o.wrap = false
+-- Sets how neovim will display certain whitespace in the editor.
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
--- Backspace
-o.backspace = 'indent,eol,start'
+-- Preview substitutions live, as you type!
+vim.opt.inccommand = 'split'
 
--- Clipboard
-o.clipboard:append 'unnamedplus'
-
--- Search settings
-o.ignorecase = true
-o.smartcase = true
-o.hlsearch = false
-o.incsearch = true
-
--- Windows
-o.splitright = true
-o.splitbelow = true
+-- Show which line your cursor is on
+vim.opt.cursorline = true
 
 -- Treat words with dash as single word
-o.iskeyword:append '-'
+-- vim.opt.iskeyword:append '-'
 
-o.updatetime = 50
+-- Set backspace
+vim.opt.backspace = 'indent,eol,start'
 
--- Swap files
-o.swapfile = false
-o.backup = false
-o.undodir = os.getenv 'HOME' .. '/.vim/undodir'
-o.undofile = true
-
--- Files and others
-vim.o.fileencoding = 'utf-8' -- File Encoding
-vim.g.loaded_netrw = 1 -- Helps opening links in the internet (probabilly -_-)
-vim.g.loaded_netrwPlugin = 1
--- vim.opt.autochdir = true
-vim.cmd 'filetype plugin indent on'
-vim.o.shortmess = vim.o.shortmess .. 'c'
-vim.o.hidden = true
-vim.o.whichwrap = 'b,s,<,>,[,],h,l'
-vim.opt.iskeyword:append '-,_'
-vim.opt.virtualedit = 'block'
-
--- Ignore certain files/ folders when globing
-o.wildignore = {
-  '*.o',
-  '*.obj',
-  '*.dylib',
-  '*.bin',
-  '*.dll',
-  '*.exe',
-  '*/.git/*',
-  '*/.svn/*',
-  '*/__pycache__/*',
-  '*/build/**',
-  '*.jpg',
-  '*.png',
-  '*.jpeg',
-  '*.bmp',
-  '*.gif',
-  '*.tiff',
-  '*.svg',
-  '*.ico',
-  '*.pyc',
-  '*.pkl',
-  '*.DS_Store',
-  '*.aux',
-  '*.bbl',
-  '*.blg',
-  '*.brf',
-  '*.fls',
-  '*.fdb_latexmk',
-  '*.synctex.gz',
-  '*.xdv',
-  '*/node_modules/*',
-  '.terraform/*',
-}
-o.wildignorecase = true
+-- Tabs and indentation
+-- vim.opt.tabstop = 2
+-- vim.opt.softtabstop = 2
+-- vim.opt.shiftwidth = 2
+-- vim.opt.expandtab = true
+-- vim.opt.smartindent = true
 
 -- Spell language
-o.spelllang = 'en'
-
--- Mouse and Scrolling
-o.scrolloff = 5
-o.sidescrolloff = 5
-o.mouse = 'a'
-
--- Auto Formatting
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
-
--- keep cursor unchanged after quiting
-vim.api.nvim_create_autocmd('ExitPre', {
-  group = vim.api.nvim_create_augroup('Exit', { clear = true }),
-  command = 'set guicursor=a:ver90',
-  desc = 'Set cursor back to beam when leaving Neovim.',
-})
-
--- PLUGINS
--- markdown settings
-vim.g.vim_markdown_folding_disabled = 1 -- Disable header folder
-vim.g.vim_markdown_conceal = 1 -- Whether to use conceal feature in markdown
-vim.g.tex_conceal = '' -- Disable both math text conceal and syntax highlighting
-vim.g.vim_markdown_math = 0
-vim.g.vim_markdown_toc_autofit = 1 -- TOC window autofit so that it doesn't take too much space
-vim.g.mkdp_auto_close = 0 -- Preview settings
+vim.opt.spelllang = 'en'

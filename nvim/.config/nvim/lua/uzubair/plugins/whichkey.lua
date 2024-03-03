@@ -1,5 +1,4 @@
 return {
-
   'folke/which-key.nvim',
   dependencies = {
     'akinsho/toggleterm.nvim',
@@ -10,7 +9,6 @@ return {
     vim.o.timeoutlen = 300
 
     local wk = require 'which-key'
-    -- border
     wk.setup {
       window = {
         border = 'double',
@@ -18,7 +16,6 @@ return {
     }
 
     local terminal = require('toggleterm.terminal').Terminal
-
     local toggle_float = function()
       local float = terminal:new { direction = 'float' }
       return float:toggle()
@@ -31,87 +28,17 @@ return {
 
     -- Keymaps
     local mappings = {
-      -- Lsp
-      c = {
-        name = 'LSP',
-        i = { ':LspInfo<cr>', 'Connected Language Servers' },
-        k = { '<cmd>lua vim.lsp.buf.signature_help()<cr>', 'Signature Help' },
-        K = { '<cmd>Lspsaga hover_doc<cr>', 'Hover Commands' },
-        w = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>', 'Add Workspace Folder' },
-        W = { '<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>', 'Remove Workspace Folder' },
-        l = {
-          '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>',
-          'List Workspace Folders',
-        },
-        t = { '<cmd>lua vim.lsp.buf.type_definition()<cr>', 'Type Definition' },
-        d = { '<cmd>lua vim.lsp.buf.definition()<cr>', 'Go To Definition' },
-        D = { '<cmd>lua vim.lsp.buf.declaration()<cr>', 'Go To Declaration' },
-        r = { '<cmd>lua vim.lsp.buf.references()<cr>', 'References' },
-        R = { '<cmd>Lspsaga rename<cr>', 'Rename' },
-        a = { '<cmd>Lspsaga code_action<cr>', 'Code Action' },
-        e = { '<cmd>Lspsaga show_line_diagnostics<cr>', 'Show Line Diagnostics' },
-        n = { '<cmd>Lspsaga diagnostic_jump_next<cr>', 'Go To Next Diagnostic' },
-        N = { '<cmd>Lspsaga diagnostic_jump_prev<cr>', 'Go To Previous Diagnostic' },
-        -- Code Formatting
-        M = { ':lua vim.lsp.buf.format()<cr>', 'Format code' },
-      },
-
-      -- Buffers
-      b = {
-        name = 'Buffers',
-        x = { ':bdelete<cr>', 'Close Buffer' },
-        n = { ':bnext<cr>', 'Next Buffer' },
-        p = { ':bprev<cr>', 'Prev Buffer' },
-        l = { ':blast<cr>', 'Last Buffer' },
-      },
-
-      -- NvimTree
-      e = {
-        name = 'NvimTree',
-        e = { ':NvimTreeToggle<cr>', 'NvimTreeToggle' },
-        f = { ':NvimTreeFocus<cr>', 'NvimTreeFocus' },
-        h = { ':e ~/<cr>', 'NvimTreeHome' },
-      },
-
       -- Telescope
       f = {
         name = 'Telescope',
-        o = { ':Telescope oldfiles theme=ivy<cr>', 'Telescope oldfiles' },
-        f = { ':Telescope find_files theme=ivy<cr>', 'Search Files' },
-        g = { ':Telescope git_files theme=ivy<cr>', 'Search Git Files' },
-        e = { ':Telescope grep_string theme=ivy<cr>', 'Search Current Word' },
-        l = { ':Telescope live_grep theme=ivy<cr>', 'Telescope live_grep' },
-        s = { ':Telescope lsp_document_symbols theme=ivy<cr>', 'Search Document Symbols' },
-        Y = { ':Telescope lsp_dynamic_workspace_symbols theme=ivy<cr>', 'Search Workspace Symbols' },
-        d = { ':Telescope diagnostics theme=ivy<cr>', 'Search Diagnostics' },
+        g = { ':Telescope git_files', 'Search Git Files' },
         a = { '<cmd>AdvancedGitSearch<cr>', 'AdvancedGitSearch' },
         n = { '<cmd>Telescope neoclip<cr>', 'Telescope neoclip' },
-        u = { ':Telescope buffers theme=ivy<cr>', 'Telescope buffers' },
-        b = { ':Telescope git_branches theme=ivy<cr>', 'Search Git Branches' },
-        k = { ':Telescope keymaps theme=ivy<cr>', 'Search Keymaps' },
-        r = { ':Telescope repo list theme=ivy<cr>', 'Search Git Repos' },
-        p = { ':Telescope projects theme=ivy<cr>', 'Search Projects' },
-        w = { ':Telescope tmux windows theme=ivy<cr>', 'Search Tmux Windows' },
-        t = { ':Telescope tmux sessions theme=ivy<cr>', 'Search Tmux Sessions' },
-        h = { ':Telescope harpoon marks theme=ivy<cr>', 'Search Harpoon Marks' },
-        c = { ':Telescope current_buffer_fuzzy_find theme=ivy<cr>', 'Fuzzy Find in File' },
-        -- a = { ':Telescope tmux pane_contents theme=ivy<cr>', 'Search Tmux Pane History' },
-        -- h = { ':Telescope help_tags theme=ivy<cr>', 'Search Help' },
-        -- r = { ':Telescope resume theme=ivy<cr>', 'Telescope resume' },
+        b = { ':Telescope git_branches', 'Search Git Branches' },
+        o = { ':Telescope repo list', 'Search Git Repos' },
+        p = { ':Telescope projects', 'Search Projects' },
+        h = { ':Telescope harpoon marks', 'Search Harpoon Marks' },
       },
-
-      -- Control Operations
-      g = {
-        name = 'Control Operations',
-        a = { mode = 'n', prefix = 'gg<S-v>G', desc = 'Select all text' },
-        h = { mode = 'c', prefix = '<HOME>', desc = 'Go to beginning of the command' },
-        d = { mode = 'i', prefix = '<DEL>', desc = 'Delete the cursor to the right of the cursor' },
-        x = { mode = 'n', prefix = '<cmd>!chmod +x %<CR>', desc = 'Enable execute mode', silent = true },
-        c = { mode = 'v', prefix = '"+y', noremap = true, desc = 'Copy the text' },
-        s = { mode = 'n', prefix = '"+P', noremap = true, desc = 'Paste the text' },
-        m = { mode = 'n', prefix = ':nohlsearch<cr>', noremap = false, silent = false, desc = 'Unhighlight searched elements' },
-      },
-
       -- Windows & Tab management
       w = {
         name = 'Windows & Tabs',
@@ -133,17 +60,23 @@ return {
         f = { ':TagbarToggle<cr>', 'Functions List Tagbar' },
       },
 
-      -- Windows Selection
-      h = { ':wincmd h<CR>', 'Move to left window' },
-      j = { ':wincmd j<CR>', 'Move to bottom window' },
-      k = { ':wincmd k<CR>', 'Move to top window' },
-      l = { ':wincmd l<CR>', 'Move to right window' },
-
-      -- Markdown
+      -- Harpoon
       m = {
-        name = 'Markdown controls',
-        p = { ':<C-U>MarkdownPreview<CR>', 'Start Preview Markdown' },
-        s = { ':<C-U>MarkdownPreviewStop<CR>', 'Stop Markdown Preview' },
+        name = 'Harpoon Marks',
+        a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", 'Add file' },
+        r = { "<cmd>lua require('harpoon.mark').rm_file()<cr>", 'Remove file' },
+        m = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", 'Menu' },
+        n = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", 'Next file' },
+        p = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", 'Previous file' },
+        ['1'] = { "<cmd> lua require('harpoon.ui').nav_file(1)<cr>", 'File 1' },
+        ['2'] = { "<cmd> lua require('harpoon.ui').nav_file(2)<cr>", 'File 2' },
+        ['3'] = { "<cmd> lua require('harpoon.ui').nav_file(3)<cr>", 'File 3' },
+        ['4'] = { "<cmd> lua require('harpoon.ui').nav_file(4)<cr>", 'File 4' },
+        ['5'] = { "<cmd> lua require('harpoon.ui').nav_file(5)<cr>", 'File 5' },
+        ['6'] = { "<cmd> lua require('harpoon.ui').nav_file(6)<cr>", 'File 6' },
+        ['7'] = { "<cmd> lua require('harpoon.ui').nav_file(7)<cr>", 'File 7' },
+        ['8'] = { "<cmd> lua require('harpoon.ui').nav_file(8)<cr>", 'File 8' },
+        ['9'] = { "<cmd> lua require('harpoon.ui').nav_file(9)<cr>", 'File 9' },
       },
 
       -- Notes using Obsidian
@@ -155,8 +88,22 @@ return {
         t = { ':ObsidianTomorrow<CR>', 'Obsidian Tomorrow' },
         y = { ':ObsidianYesterday<CR>', 'Obsidian Yesterday' },
         s = { ':ObsidianSearch<CR>', 'Obsidian Search' },
+      },      
+      
+      -- Markdown
+      p = {
+        name = 'Markdown controls',
+        p = { ':<C-U>MarkdownPreview<CR>', 'Start Preview Markdown' },
+        s = { ':<C-U>MarkdownPreviewStop<CR>', 'Stop Markdown Preview' },
       },
 
+      -- Refactor
+      r = {
+        name = 'Refactor Code',
+        -- n = { ':IncRename', 'Rename' },
+        r = { mode = { 'n', 'x' }, prefix = "<cmd>lua require('telescope').extensions.refactoring.refactors()", desc = 'Refactor' },
+      },      
+      
       -- Terminal
       t = {
         name = 'Terminal',
@@ -166,32 +113,8 @@ return {
         g = { ':G<cr>', 'Vim fugitive' },
       },
 
-      -- Harpoon
-      p = {
-        name = 'Harpoon',
-        a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", 'add file' },
-        r = { "<cmd>lua require('harpoon.mark').rm_file()<cr>", 'remove file' },
-        m = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", 'harpoon menu' },
-        n = { "<cmd>lua require('harpoon.ui').nav_next()<cr>", 'next file' },
-        p = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", 'previous file' },
-        ['1'] = { "<cmd> lua require('harpoon.ui').nav_file(1)<cr>", 'file 1' },
-        ['2'] = { "<cmd> lua require('harpoon.ui').nav_file(2)<cr>", 'file 2' },
-        ['3'] = { "<cmd> lua require('harpoon.ui').nav_file(3)<cr>", 'file 3' },
-        ['4'] = { "<cmd> lua require('harpoon.ui').nav_file(4)<cr>", 'file 4' },
-        ['5'] = { "<cmd> lua require('harpoon.ui').nav_file(5)<cr>", 'file 5' },
-        ['6'] = { "<cmd> lua require('harpoon.ui').nav_file(6)<cr>", 'file 6' },
-        ['7'] = { "<cmd> lua require('harpoon.ui').nav_file(7)<cr>", 'file 7' },
-        ['8'] = { "<cmd> lua require('harpoon.ui').nav_file(8)<cr>", 'file 8' },
-        ['9'] = { "<cmd> lua require('harpoon.ui').nav_file(9)<cr>", 'file 9' },
-      },
-
-      -- Refactor
-      r = {
-        name = 'Refactor Code',
-        n = { ':IncRename', 'Rename' },
-        r = { mode = { 'n', 'x' }, prefix = "<cmd>lua require('telescope').extensions.refactoring.refactors()", desc = 'Refactor' },
-      },
-
+      x = { mode = {'n'}, prefix = '<cmd>!chmod +x %<CR>', desc = 'Enable execute mode', silent = true },
+      
       -- Undotree
       u = { ':UndotreeToggle<cr>', 'Git Undotree' },
     }
