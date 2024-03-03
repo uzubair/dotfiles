@@ -31,13 +31,13 @@ return {
       -- Telescope
       f = {
         name = 'Telescope',
-        g = { ':Telescope git_files', 'Search Git Files' },
-        a = { '<cmd>AdvancedGitSearch<cr>', 'AdvancedGitSearch' },
-        n = { '<cmd>Telescope neoclip<cr>', 'Telescope neoclip' },
-        b = { ':Telescope git_branches', 'Search Git Branches' },
-        o = { ':Telescope repo list', 'Search Git Repos' },
-        p = { ':Telescope projects', 'Search Projects' },
-        h = { ':Telescope harpoon marks', 'Search Harpoon Marks' },
+        g = { ':Telescope git_files<CR>', 'Search Git Files' },
+        a = { '<cmd>AdvancedGitSearch<CR>', 'AdvancedGitSearch' },
+        n = { '<cmd>Telescope neoclip<CR>', 'Telescope neoclip' },
+        b = { ':Telescope git_branches<CR>', 'Search Git Branches' },
+        o = { ':Telescope repo list<CR>', 'Search Git Repos' },
+        p = { ':Telescope projects<CR>', 'Search Projects' },
+        h = { ':Telescope harpoon marks<CR>', 'Search Harpoon Marks' },
       },
       -- Windows & Tab management
       w = {
