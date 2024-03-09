@@ -52,9 +52,26 @@ return {
         cssls = {},
         gopls = {},
         pyright = {},
+        jsonls = {
+          settings = {
+            json = {
+              format = { enable = true },
+            },
+            validate = { enable = true },
+          },
+        },
+        jqls = {},
+        kotlin_language_server = {},
+        -- autotools-language-server = {},
+        jsonnet_ls = {},
+        awk_ls = {},
+        ansiblels = {},
+        dockerls = {},
+        yamlls = {},
         terraformls = {
           filetypes = { 'hcl', 'tf', 'tfvars' },
         },
+        tflint = {},
         emmet_ls = {
           filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'svelte' },
         },
@@ -123,7 +140,10 @@ return {
       formatters_by_ft = {
         lua = { 'stylua' },
         python = { 'black' },
-        terraform = { 'tflint' },
+        terraform = { 'terraform_fmt' },
+        jq = { 'jq' },
+        jsonnet = { 'jsonnetfmt' },
+        go = { 'goimports', 'gofmt' },
       },
     },
   },

@@ -62,8 +62,4 @@ return {
       return title
     end,
   },
-  config = function()
-    local obsidian = require 'obsidian'
-    obsidian.setup()
-  end,
 }
